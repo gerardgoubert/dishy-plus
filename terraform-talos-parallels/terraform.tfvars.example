@@ -1,0 +1,55 @@
+cluster_name       = "talos-parallels"
+talos_version      = "v1.8.4"
+kubernetes_version = "v1.31.2"
+talos_architecture = "arm64"
+talos_extensions   = []
+
+parallels_network_type         = "bridged"
+parallels_host_interface       = "en0"
+parallels_network_adapter_type = "virtio"
+vm_bios_type                   = "efi-arm64"
+vm_disk_size_mb                = 102400
+
+controlplane_vip   = "192.168.60.210"
+gateway            = "192.168.60.1"
+node_prefix_length = 24
+dns_servers        = ["192.168.60.1"]
+install_disk       = "/dev/sda"
+
+metallb_ip_range = "192.168.60.230-192.168.60.250"
+
+controlplane_nodes = {
+  talos-cp-1 = {
+    ip        = "192.168.60.211"
+    cpu       = 4
+    memory_mb = 8192
+  }
+  talos-cp-2 = {
+    ip        = "192.168.60.212"
+    cpu       = 4
+    memory_mb = 8192
+  }
+  talos-cp-3 = {
+    ip        = "192.168.60.213"
+    cpu       = 4
+    memory_mb = 8192
+  }
+}
+
+worker_nodes = {
+  talos-wk-1 = {
+    ip        = "192.168.60.221"
+    cpu       = 4
+    memory_mb = 8192
+  }
+  talos-wk-2 = {
+    ip        = "192.168.60.222"
+    cpu       = 4
+    memory_mb = 8192
+  }
+  talos-wk-3 = {
+    ip        = "192.168.60.223"
+    cpu       = 4
+    memory_mb = 8192
+  }
+}

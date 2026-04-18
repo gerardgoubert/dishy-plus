@@ -1,0 +1,7 @@
+ingress:
+  annotations:
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/name: "13ft"
+    gethomepage.dev/description: "Bypass paywalls"
+    gethomepage.dev/group: "Applications"
+    gethomepage.dev/icon: "mdi-newspaper-variant-outline"

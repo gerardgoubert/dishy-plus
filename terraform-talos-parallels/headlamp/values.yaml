@@ -1,0 +1,5 @@
+# Headlamp Helm chart values
+service:
+  type: ClusterIP
+  port: 80
+

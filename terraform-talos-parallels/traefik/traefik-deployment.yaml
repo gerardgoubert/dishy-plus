@@ -1,0 +1,63 @@
+# traefik-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: traefik
+  namespace: traefik
+  labels:
+    app: traefik
+spec:
+  replicas: 2  # Run multiple replicas for high availability
+  selector:
+    matchLabels:
+      app: traefik
+  template:
+    metadata:
+      labels:
+        app: traefik
+    spec:
+      serviceAccountName: traefik-ingress-controller
+      containers:
+        - name: traefik
+          image: traefik:v3.0
+          args:
+            # Enable Kubernetes provider for service discovery
+            - --providers.kubernetescrd
+            - --providers.kubernetesingress
+            # Define entrypoints for HTTP and HTTPS traffic
+            - --entrypoints.web.address=:80
+            - --entrypoints.websecure.address=:443
+            # Enable the dashboard (accessible via port-forward)
+            - --api.dashboard=true
+            - --api.insecure=true
+            # Log level for debugging
+            - --log.level=INFO
+          ports:
+            - name: web
+              containerPort: 80
+            - name: websecure
+              containerPort: 443
+            - name: dashboard
+              containerPort: 8080
+          # Resource limits prevent runaway memory usage
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
+          # Liveness probe ensures unhealthy pods get restarted
+          livenessProbe:
+            httpGet:
+              path: /ping
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          # Readiness probe controls traffic routing
+          readinessProbe:
+            httpGet:
+              path: /ping
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
