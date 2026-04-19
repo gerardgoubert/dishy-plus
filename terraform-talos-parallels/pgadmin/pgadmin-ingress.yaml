@@ -1,0 +1,27 @@
+#ingress route and homepage annotations
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: pgadmin-ingress
+  namespace: pgadmin
+  annotations:
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/name: "pgadmin"
+    gethomepage.dev/description: "PostgresQL Administration"
+    gethomepage.dev/group: "Applications"
+    gethomepage.dev/icon: "fa-brands fa-postgresql"
+    gethomepage.dev/href: "http://pgadmin.cluster.local"
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`pgadmin.cluster.local`)
+      kind: Rule
+      services:
+        - name: pgadmin
+          port: 80
+    - match: Host(`pgadmin.wickedgoodwifi.com`)
+      kind: Rule
+      services:
+        - name: pgadmin
+          port: 80
