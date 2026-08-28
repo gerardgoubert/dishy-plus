@@ -35,9 +35,18 @@ data "talos_image_factory_extensions_versions" "this" {
   }
 }
 
+# This schematic is what makes the downloaded ISO a properly customized
+# first-boot image rather than the generic upstream Talos ISO: it bakes in
+# the system extensions workloads deployed later in this config depend on
+# (see var.talos_extensions, e.g. Longhorn's iscsi-tools/util-linux-tools).
+# Extensions can only be added at install/upgrade time via a schematic like
+# this one, so anything required on first boot must be declared here -
+# adding it after nodes are already provisioned requires a full reinstall
+# or a talosctl upgrade to a new schematic ID.
 resource "talos_image_factory_schematic" "this" {
   schematic = yamlencode({
     customization = {
+      extraKernelArgs = ["random.trust_cpu=on", "random.trust_bootloader=on"]
       systemExtensions = {
         officialExtensions = length(var.talos_extensions) > 0 ? data.talos_image_factory_extensions_versions.this[0].extensions_info[*].name : []
       }
@@ -134,6 +143,40 @@ resource "null_resource" "create_vms" {
         VM_STATUS="$(prlctl list "$VM_NAME" --no-header -o status || true)"
         if [ "$VM_STATUS" != "running" ]; then
           prlctl start "$VM_NAME"
+
+          # Parallels' arm64 UEFI firmware does not implement EFI_RNG_PROTOCOL, so
+          # Talos can stall at boot waiting for entropy (kernel random.trust_cpu /
+          # random.trust_bootloader are no-ops here since there is no CPU RNG
+          # instruction or firmware-supplied seed to trust). This is a known
+          # limitation of Apple-silicon-hosted, non-QEMU hypervisors
+          # (siderolabs/talos#11865). The documented manual workaround is pressing
+          # random keys to generate interrupt-timing entropy; automate that here by
+          # firing 100 harmless Left Shift key events spread over 5s to the console.
+          ( for _ in $(seq 1 100); do
+              prlctl send-key-event "$VM_NAME" -s 42 -d 1 >/dev/null 2>&1 || true
+              sleep 0.05
+            done ) &!
+
+          # Actively poll for readiness instead of sleeping a fixed duration: wait
+          # for a DHCP IP, then for the Talos maintenance API (apid, port 50000) to
+          # actually accept connections. This runs in parallel with the keypress
+          # loop above and returns as soon as the node is really ready, rather than
+          # guessing how long boot + entropy unblocking will take.
+          echo "Waiting for $VM_NAME to become network/API-ready..."
+          READY=""
+          for i in $(seq 1 60); do
+            IP=$(prlctl list "$VM_NAME" -o ip --no-header 2>/dev/null \
+                 | grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}' | head -1 || true)
+            if [ -n "$IP" ] && nc -z -w 2 "$IP" 50000 2>/dev/null; then
+              echo "$VM_NAME is up at $IP (Talos API reachable)"
+              READY=1
+              break
+            fi
+            sleep 2
+          done
+          if [ -z "$READY" ]; then
+            echo "WARNING: $VM_NAME did not become network/API-ready within timeout, continuing anyway"
+          fi
         fi
       fi
     EOT
@@ -157,11 +200,6 @@ resource "null_resource" "create_vms" {
 # Talos configuration
 # ---------------------------------------------------------------------------
 
-resource "time_sleep" "wait_for_talos_api" {
-  depends_on      = [null_resource.create_vms]
-  create_duration = var.talos_api_wait_duration
-}
-
 resource "talos_machine_secrets" "this" {
   talos_version = var.talos_version
 }
@@ -180,12 +218,16 @@ data "talos_machine_configuration" "controlplane" {
     yamlencode({
       machine = {
         install = {
-          disk            = var.install_disk
-          image           = local.installer_image
-          extraKernelArgs = ["noxsave"]
+          disk              = var.install_disk
+          image             = local.installer_image
+          extraKernelArgs   = ["noxsave", "random.trust_cpu=on", "random.trust_bootloader=on"]
+          grubUseUKICmdline = false
+        }
+        time = {
+          disabled = false
+          servers  = var.ntp_servers
         }
         network = {
-          hostname    = each.key
           nameservers = var.dns_servers
           interfaces = [
             {
@@ -205,6 +247,9 @@ data "talos_machine_configuration" "controlplane" {
             }
           ]
         }
+        sysctls = {
+          "net.ipv4.conf.all.arp_notify" = "1"
+        }
       }
       cluster = {
         allowSchedulingOnControlPlanes = true
@@ -217,6 +262,12 @@ data "talos_machine_configuration" "controlplane" {
           }
         }
       }
+    }),
+    yamlencode({
+      apiVersion = "v1alpha1"
+      kind       = "HostnameConfig"
+      auto       = "off"
+      hostname   = each.key
     })
   ]
 }
@@ -235,12 +286,16 @@ data "talos_machine_configuration" "worker" {
     yamlencode({
       machine = {
         install = {
-          disk            = var.install_disk
-          image           = local.installer_image
-          extraKernelArgs = ["noxsave"]
+          disk              = var.install_disk
+          image             = local.installer_image
+          extraKernelArgs   = ["noxsave", "random.trust_cpu=on", "random.trust_bootloader=on"]
+          grubUseUKICmdline = false
+        }
+        time = {
+          disabled = false
+          servers  = var.ntp_servers
         }
         network = {
-          hostname    = each.key
           nameservers = var.dns_servers
           interfaces = [
             {
@@ -257,6 +312,9 @@ data "talos_machine_configuration" "worker" {
             }
           ]
         }
+        sysctls = {
+          "net.ipv4.conf.all.arp_notify" = "1"
+        }
         kernel = {
           modules = [
             { name = "nbd" },
@@ -264,6 +322,12 @@ data "talos_machine_configuration" "worker" {
           ]
         }
       }
+    }),
+    yamlencode({
+      apiVersion = "v1alpha1"
+      kind       = "HostnameConfig"
+      auto       = "off"
+      hostname   = each.key
     })
   ]
 }
@@ -299,7 +363,7 @@ resource "local_sensitive_file" "worker_machineconfig" {
 
 data "external" "vm_dhcp_ip" {
   for_each   = local.all_nodes
-  depends_on = [time_sleep.wait_for_talos_api]
+  depends_on = [null_resource.create_vms]
 
   program = ["/bin/zsh", "-c", <<-EOT
     STATIC_IP="${each.value.ip}"
@@ -384,18 +448,51 @@ resource "null_resource" "eject_iso" {
   }
 }
 
-# Wait for nodes to install to disk and reboot with static IPs
-resource "time_sleep" "wait_for_reboot" {
+# Wait for nodes to install to disk and reboot with static IPs. Rather than
+# sleeping a fixed duration, actively poll each node's static IP for the
+# Talos maintenance/apid API (port 50000) to accept connections, returning as
+# soon as every node is actually back up instead of guessing how long the
+# install + reboot will take.
+resource "null_resource" "wait_for_reboot" {
   depends_on = [
     talos_machine_configuration_apply.controlplane,
     talos_machine_configuration_apply.worker,
     null_resource.eject_iso,
   ]
-  create_duration = "90s"
+
+  triggers = {
+    cp_ips = join(",", local.controlplane_ips)
+    wk_ips = join(",", local.worker_ips)
+  }
+
+  provisioner "local-exec" {
+    interpreter = ["/bin/zsh", "-c"]
+    command     = <<-EOT
+      set -euo pipefail
+      ALL_IPS="${join(" ", concat(local.controlplane_ips, local.worker_ips))}"
+
+      echo "=== Waiting for nodes to finish installing to disk and reboot on static IPs ==="
+      for ip in $ALL_IPS; do
+        echo -n "  $ip: "
+        READY=""
+        for i in $(seq 1 60); do
+          if nc -z -w 2 "$ip" 50000 2>/dev/null; then
+            echo "Talos API ready"
+            READY=1
+            break
+          fi
+          sleep 3
+        done
+        if [ -z "$READY" ]; then
+          echo "WARNING: Talos API on $ip not ready after timeout, continuing anyway"
+        fi
+      done
+    EOT
+  }
 }
 
 resource "talos_machine_bootstrap" "this" {
-  depends_on = [time_sleep.wait_for_reboot]
+  depends_on = [null_resource.wait_for_reboot]
 
   node                 = local.controlplane_ips[0]
   endpoint             = local.controlplane_ips[0]
@@ -811,52 +908,12 @@ resource "null_resource" "cloudflared_install" {
 }
 
 # ---------------------------------------------------------------------------
-# Metrics Server – with kubelet-insecure-tls for Talos (no IP SANs in certs)
-# ---------------------------------------------------------------------------
-
-resource "null_resource" "metrics_server_install" {
-  depends_on = [null_resource.cloudflared_install]
-
-  triggers = {
-    metrics_server_version = var.metrics_server_version
-    kubeconfig             = local_sensitive_file.kubeconfig.filename
-  }
-
-  provisioner "local-exec" {
-    interpreter = ["/bin/zsh", "-c"]
-    command     = <<-EOT
-      set -euo pipefail
-      export KUBECONFIG="${local_sensitive_file.kubeconfig.filename}"
-      VIP="https://${var.controlplane_vip}:6443"
-      CP1="https://${local.controlplane_ips[0]}:6443"
-
-      # Prefer VIP, fall back to CP1
-      if curl -sk -o /dev/null -w "%%{http_code}" "$VIP/healthz" 2>/dev/null | grep -qE '^(200|401)$'; then
-        KUBE_API="$VIP"
-      else
-        KUBE_API="$CP1"
-      fi
-      echo "Using API server: $KUBE_API"
-
-      helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/ 2>/dev/null || true
-      helm repo update metrics-server
-
-      helm upgrade --install metrics-server metrics-server/metrics-server \
-        --namespace kube-system \
-        --version "${var.metrics_server_version}" \
-        --set 'args={--kubelet-insecure-tls}' \
-        --kube-apiserver "$KUBE_API" \
-        --wait --timeout 5m
-    EOT
-  }
-}
-
-# ---------------------------------------------------------------------------
-# Longhorn – distributed block storage
+# Longhorn – distributed block storage. Installed before Metrics Server
+# since it needs the "longhorn" storage class to be available.
 # ---------------------------------------------------------------------------
 
 resource "null_resource" "longhorn_install" {
-  depends_on = [null_resource.metrics_server_install]
+  depends_on = [null_resource.cloudflared_install]
 
   triggers = {
     longhorn_version = var.longhorn_version
@@ -896,6 +953,47 @@ resource "null_resource" "longhorn_install" {
         --set ingress.enabled=true \
         --set ingress.ingressClassName=traefik \
         --set ingress.host=longhorn.cluster.local \
+        --kube-apiserver "$KUBE_API" \
+        --wait --timeout 5m
+    EOT
+  }
+}
+
+# ---------------------------------------------------------------------------
+# Metrics Server – with kubelet-insecure-tls for Talos (no IP SANs in certs)
+# ---------------------------------------------------------------------------
+
+resource "null_resource" "metrics_server_install" {
+  depends_on = [null_resource.longhorn_install]
+
+  triggers = {
+    metrics_server_version = var.metrics_server_version
+    kubeconfig             = local_sensitive_file.kubeconfig.filename
+  }
+
+  provisioner "local-exec" {
+    interpreter = ["/bin/zsh", "-c"]
+    command     = <<-EOT
+      set -euo pipefail
+      export KUBECONFIG="${local_sensitive_file.kubeconfig.filename}"
+      VIP="https://${var.controlplane_vip}:6443"
+      CP1="https://${local.controlplane_ips[0]}:6443"
+
+      # Prefer VIP, fall back to CP1
+      if curl -sk -o /dev/null -w "%%{http_code}" "$VIP/healthz" 2>/dev/null | grep -qE '^(200|401)$'; then
+        KUBE_API="$VIP"
+      else
+        KUBE_API="$CP1"
+      fi
+      echo "Using API server: $KUBE_API"
+
+      helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/ 2>/dev/null || true
+      helm repo update metrics-server
+
+      helm upgrade --install metrics-server metrics-server/metrics-server \
+        --namespace kube-system \
+        --version "${var.metrics_server_version}" \
+        --set 'args={--kubelet-insecure-tls}' \
         --kube-apiserver "$KUBE_API" \
         --wait --timeout 5m
     EOT
@@ -977,12 +1075,22 @@ resource "null_resource" "prometheus_install" {
     command     = <<-EOT
       set -euo pipefail
       export KUBECONFIG="${local_sensitive_file.kubeconfig.filename}"
+      VIP="https://${var.controlplane_vip}:6443"
+      CP1="https://${local.controlplane_ips[0]}:6443"
+
+      # Prefer VIP, fall back to CP1
+      if curl -sk -o /dev/null -w "%%{http_code}" "$VIP/healthz" 2>/dev/null | grep -qE '^(200|401)$'; then
+        KUBE_API="$VIP"
+      else
+        KUBE_API="$CP1"
+      fi
+      echo "Using API server: $KUBE_API"
+      export KUBE_API
 
       helm repo add prometheus-community https://prometheus-community.github.io/helm-charts 2>/dev/null || true
       helm repo update prometheus-community
 
-      cd "${path.module}/monitoring"
-      bash deploy-prometheus.sh
+      bash "${path.module}/monitoring/deploy-prometheus.sh"
     EOT
   }
 }

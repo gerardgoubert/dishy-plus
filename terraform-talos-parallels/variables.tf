@@ -7,13 +7,13 @@ variable "cluster_name" {
 variable "talos_version" {
   description = "Talos version for machine configs, secrets, and Image Factory."
   type        = string
-  default     = "v1.8.4"
+  default     = "v1.13.9"
 }
 
 variable "kubernetes_version" {
   description = "Kubernetes version to render into Talos machine configs."
   type        = string
-  default     = "v1.31.4"
+  default     = "v1.36.3"
 }
 
 variable "talos_architecture" {
@@ -28,9 +28,21 @@ variable "talos_architecture" {
 }
 
 variable "talos_extensions" {
-  description = "Official Talos extensions to include via Image Factory."
+  description = <<-EOT
+    Official Talos extensions to bake into the Image Factory schematic (ISO and
+    installer image) so they are present on the very first boot. Extensions
+    cannot be added to a node after the fact except by rebuilding the schematic
+    and reinstalling/upgrading, so anything required by workloads deployed by
+    this config (e.g. Longhorn) must be listed here up front.
+
+    Defaults include the two extensions Longhorn requires on every node:
+      - siderolabs/iscsi-tools: provides iscsiadm and the iscsi_tcp kernel
+        module used for persistent volume attachment.
+      - siderolabs/util-linux-tools: provides fstrim (volume trimming) and
+        nsenter (required by Longhorn v1.5+).
+  EOT
   type        = list(string)
-  default     = []
+  default     = ["siderolabs/iscsi-tools", "siderolabs/util-linux-tools"]
 }
 
 # ---------------------------------------------------------------------------
@@ -138,16 +150,21 @@ variable "dns_servers" {
   }
 }
 
+variable "ntp_servers" {
+  description = "NTP servers configured on each node via machine.time.servers."
+  type        = list(string)
+  default     = ["time.cloudflare.com"]
+
+  validation {
+    condition     = length(var.ntp_servers) > 0
+    error_message = "ntp_servers must contain at least one NTP server."
+  }
+}
+
 variable "install_disk" {
   description = "Target disk Talos installs to."
   type        = string
   default     = "/dev/sda"
-}
-
-variable "talos_api_wait_duration" {
-  description = "How long Terraform waits after VM start before applying Talos configs."
-  type        = string
-  default     = "30s"
 }
 
 # ---------------------------------------------------------------------------

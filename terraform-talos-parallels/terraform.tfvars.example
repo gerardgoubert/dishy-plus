@@ -1,8 +1,8 @@
 cluster_name       = "talos-parallels"
-talos_version      = "v1.8.4"
-kubernetes_version = "v1.31.2"
+talos_version      = "v1.13.9"
+kubernetes_version = "v1.36.3"
 talos_architecture = "arm64"
-talos_extensions   = []
+talos_extensions   = ["siderolabs/iscsi-tools", "siderolabs/util-linux-tools"] # required by Longhorn (baked in for first boot)
 
 parallels_network_type         = "bridged"
 parallels_host_interface       = "en0"

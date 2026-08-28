@@ -12,10 +12,6 @@ terraform {
     }
     talos = {
       source  = "siderolabs/talos"
-      version = "~> 0.10"
-    }
-    time = {
-      source  = "hashicorp/time"
       version = "~> 0.11"
     }
     external = {
