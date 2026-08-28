@@ -180,12 +180,12 @@ data "talos_machine_configuration" "controlplane" {
     yamlencode({
       machine = {
         install = {
-          disk           = var.install_disk
-          image          = local.installer_image
+          disk            = var.install_disk
+          image           = local.installer_image
           extraKernelArgs = ["noxsave"]
         }
         network = {
-          hostname = each.key
+          hostname    = each.key
           nameservers = var.dns_servers
           interfaces = [
             {
@@ -235,12 +235,12 @@ data "talos_machine_configuration" "worker" {
     yamlencode({
       machine = {
         install = {
-          disk           = var.install_disk
-          image          = local.installer_image
+          disk            = var.install_disk
+          image           = local.installer_image
           extraKernelArgs = ["noxsave"]
         }
         network = {
-          hostname = each.key
+          hostname    = each.key
           nameservers = var.dns_servers
           interfaces = [
             {
@@ -352,11 +352,44 @@ resource "talos_machine_configuration_apply" "worker" {
   apply_mode                  = "auto"
 }
 
+# Disconnect the boot ISO once config has been applied and Talos has started
+# installing to disk. The installer image comes from the network (Image
+# Factory), not the local ISO, so the ISO is only needed for the very first
+# maintenance-mode boot. Leaving it connected makes Parallels' arm64 EFI
+# firmware boot-device selection non-deterministic across reboots: on some
+# restarts it re-enters the stateless Talos ISO (maintenance mode) instead of
+# the installed disk, which shows up as "no IP" / DNS and NTP
+# (time.cloudflare.com) failures that never resolve.
+resource "null_resource" "eject_iso" {
+  for_each = local.all_nodes
+
+  depends_on = [
+    talos_machine_configuration_apply.controlplane,
+    talos_machine_configuration_apply.worker,
+  ]
+
+  triggers = {
+    vm_name = each.key
+  }
+
+  provisioner "local-exec" {
+    interpreter = ["/bin/zsh", "-c"]
+    command     = <<-EOT
+      set -euo pipefail
+      VM_NAME="${each.key}"
+      if prlctl list -a --no-header -o name | grep -Fxq "$VM_NAME"; then
+        prlctl set "$VM_NAME" --device-set cdrom0 --disconnect 2>/dev/null || true
+      fi
+    EOT
+  }
+}
+
 # Wait for nodes to install to disk and reboot with static IPs
 resource "time_sleep" "wait_for_reboot" {
   depends_on = [
     talos_machine_configuration_apply.controlplane,
     talos_machine_configuration_apply.worker,
+    null_resource.eject_iso,
   ]
   create_duration = "90s"
 }

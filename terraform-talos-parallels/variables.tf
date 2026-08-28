@@ -123,9 +123,19 @@ variable "gateway" {
 }
 
 variable "dns_servers" {
-  description = "DNS resolvers configured on each node."
+  description = "DNS resolver IP addresses configured on each node together with its static network settings."
   type        = list(string)
   default     = ["192.168.60.1"]
+
+  validation {
+    condition = (
+      length(var.dns_servers) > 0 &&
+      alltrue([
+        for server in var.dns_servers : can(cidrhost("${server}/32", 0))
+      ])
+    )
+    error_message = "dns_servers must contain at least one valid IPv4 resolver address."
+  }
 }
 
 variable "install_disk" {
