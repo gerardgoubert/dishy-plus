@@ -1,0 +1,694 @@
+{"message_id":"build","event":"output","data":"\\033[32mINFO ESPHome 2026.11.0\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[32mINFO Reading configuration /config/sendspin-project-v2.yaml...\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[33mWARNING GPIO46 is a strapping pin and should only be used for I/O with care.\n"}
+{"message_id":"build","event":"output","data":"Attaching external pullup/down resistors to strapping pins can cause unexpected failures.\n"}
+{"message_id":"build","event":"output","data":"See https://esphome.io/guides/faq/#why-am-i-getting-a-warning-about-strapping-pins\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[33mWARNING GPIO45 is a strapping pin and should only be used for I/O with care.\n"}
+{"message_id":"build","event":"output","data":"Attaching external pullup/down resistors to strapping pins can cause unexpected failures.\n"}
+{"message_id":"build","event":"output","data":"See https://esphome.io/guides/faq/#why-am-i-getting-a-warning-about-strapping-pins\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[33mWARNING GPIO0 is a strapping pin and should only be used for I/O with care.\n"}
+{"message_id":"build","event":"output","data":"Attaching external pullup/down resistors to strapping pins can cause unexpected failures.\n"}
+{"message_id":"build","event":"output","data":"See https://esphome.io/guides/faq/#why-am-i-getting-a-warning-about-strapping-pins\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[33mWARNING 'ota' password wastes significant flash and RAM; using 'encryption' instead is recommended - see https://esphome.io/components/ota/esphome/#configuration-variables\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[32mINFO GPIO binary_sensor 'btn_pwr_vol_down': Pin is not an internal GPIO, falling back to polling mode.\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[32mINFO Generating C++ source...\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[32mINFO Applying optimized lwip settings: 65KB TCP windows, 64 entry input mailbox\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[32mINFO Applying optimized WiFi settings: 64 RX buffers, 64 TX buffers\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[32mINFO Setting CONFIG_LWIP_MAX_SOCKETS to 20 (TCP=11 [api=3, captive_portal=3, sendspin_websocket_client=1, sendspin_websocket_server=4], UDP=5 [captive_portal=1, mdns=2, web_server_idf=2], TCP_LISTEN=4 [api=1, ota=1, sendspin_websocket_server=1, web_server_base=1])\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[32mINFO Compiling app... Build path: /config/.esphome/build/sendspin-project-v2\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[32mINFO Checking ESP-IDF 5.5.6 framework ...\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[32mINFO Checking ESP-IDF 5.5.6 framework installation ...\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[32mINFO Checking ESP-IDF 5.5.6 Python environment ...\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[32mINFO Using cached ESP-IDF component list\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[32mINFO Writing CMakeLists.txt with the built-in component list...\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[32mINFO Serving IDF components from the local mirror at /config/.esphome/idf/component_mirror\\033[0m\n"}
+{"message_id":"build","event":"output","data":"-- Found Git: /usr/bin/git (found version \"2.47.3\")\n"}
+{"message_id":"build","event":"output","data":"-- Component directory /config/.esphome/idf/frameworks/5.5.6/components/esp_blockdev does not contain a CMakeLists.txt file. No component will be added\n"}
+{"message_id":"build","event":"output","data":"-- Minimal build - OFF\n"}
+{"message_id":"build","event":"output","data":"-- ccache will be used for faster recompilation\n"}
+{"message_id":"build","event":"output","data":"-- The C compiler identification is GNU 14.2.0\n"}
+{"message_id":"build","event":"output","data":"-- The CXX compiler identification is GNU 14.2.0\n"}
+{"message_id":"build","event":"output","data":"-- The ASM compiler identification is GNU\n"}
+{"message_id":"build","event":"output","data":"-- Found assembler: /config/.esphome/idf/tools/xtensa-esp-elf/esp-14.2.0_20260121/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc\n"}
+{"message_id":"build","event":"output","data":"-- Detecting C compiler ABI info\n"}
+{"message_id":"build","event":"output","data":"-- Detecting C compiler ABI info - done\n"}
+{"message_id":"build","event":"output","data":"-- Check for working C compiler: /config/.esphome/idf/tools/xtensa-esp-elf/esp-14.2.0_20260121/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc - skipped\n"}
+{"message_id":"build","event":"output","data":"-- Detecting C compile features\n"}
+{"message_id":"build","event":"output","data":"-- Detecting C compile features - done\n"}
+{"message_id":"build","event":"output","data":"-- Detecting CXX compiler ABI info\n"}
+{"message_id":"build","event":"output","data":"-- Detecting CXX compiler ABI info - done\n"}
+{"message_id":"build","event":"output","data":"-- Check for working CXX compiler: /config/.esphome/idf/tools/xtensa-esp-elf/esp-14.2.0_20260121/xtensa-esp-elf/bin/xtensa-esp32s3-elf-g++ - skipped\n"}
+{"message_id":"build","event":"output","data":"-- Detecting CXX compile features\n"}
+{"message_id":"build","event":"output","data":"-- Detecting CXX compile features - done\n"}
+{"message_id":"build","event":"output","data":"-- Building ESP-IDF components for target esp32s3\n"}
+{"message_id":"build","event":"output","data":"\\033[33mCMake Warning at /config/.esphome/idf/frameworks/5.5.6/tools/cmake/build.cmake:631 (message):\n"}
+{"message_id":"build","event":"output","data":"Call Stack (most recent call first):\n"}
+{"message_id":"build","event":"output","data":"  /config/.esphome/idf/frameworks/5.5.6/tools/cmake/project.cmake:752 (idf_build_process)\n"}
+{"message_id":"build","event":"output","data":"  CMakeLists.txt:184 (project)\n"}
+{"message_id":"build","event":"output","data":"\\033[0m-- Opus: Using patch command: /usr/bin/patch\n"}
+{"message_id":"build","event":"output","data":"-- Project sdkconfig file /config/.esphome/build/sendspin-project-v2/sdkconfig.sendspin-project-v2\n"}
+{"message_id":"build","event":"output","data":"\\033[33mCMake Warning at /config/.esphome/idf/frameworks/5.5.6/tools/cmake/project.cmake:765 (message):\n"}
+{"message_id":"build","event":"output","data":"  Missing kconfig option.  Re-run the build process...\n"}
+{"message_id":"build","event":"output","data":"Call Stack (most recent call first):\n"}
+{"message_id":"build","event":"output","data":"  CMakeLists.txt:184 (project)\n"}
+{"message_id":"build","event":"output","data":"\\033[0m-- Opus: Using patch command: /usr/bin/patch\n"}
+{"message_id":"build","event":"output","data":"-- Project sdkconfig file /config/.esphome/build/sendspin-project-v2/sdkconfig.sendspin-project-v2\n"}
+{"message_id":"build","event":"output","data":"-- Compiler supported targets: xtensa-esp-elf\n"}
+{"message_id":"build","event":"output","data":"-- Detecting C compiler ABI info\n"}
+{"message_id":"build","event":"output","data":"-- Detecting C compiler ABI info - done\n"}
+{"message_id":"build","event":"output","data":"-- Detecting CXX compiler ABI info\n"}
+{"message_id":"build","event":"output","data":"-- Detecting CXX compiler ABI info - done\n"}
+{"message_id":"build","event":"output","data":"-- Detecting C compiler ABI info\n"}
+{"message_id":"build","event":"output","data":"-- Detecting C compiler ABI info - done\n"}
+{"message_id":"build","event":"output","data":"-- Detecting CXX compiler ABI info\n"}
+{"message_id":"build","event":"output","data":"-- Detecting CXX compiler ABI info - done\n"}
+{"message_id":"build","event":"output","data":"-- Found Python3: /config/.esphome/idf/penvs/5.5.6/bin/python (found version \"3.14.10\") found components: Interpreter\n"}
+{"message_id":"build","event":"output","data":"-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n"}
+{"message_id":"build","event":"output","data":"-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n"}
+{"message_id":"build","event":"output","data":"-- Found Threads: TRUE\n"}
+{"message_id":"build","event":"output","data":"-- Performing Test C_COMPILER_SUPPORTS_WFORMAT_SIGNEDNESS\n"}
+{"message_id":"build","event":"output","data":"-- Performing Test C_COMPILER_SUPPORTS_WFORMAT_SIGNEDNESS - Success\n"}
+{"message_id":"build","event":"output","data":"-- USING O3\n"}
+{"message_id":"build","event":"output","data":"-- App \"sendspin-project-v2\" version: 2026.11.0\n"}
+{"message_id":"build","event":"output","data":"-- microFLAC: Building for ESP-IDF target esp32s3\n"}
+{"message_id":"build","event":"output","data":"-- Opus: Using patch command: /usr/bin/patch\n"}
+{"message_id":"build","event":"output","data":"-- Opus: Using existing staged directory (up to date)\n"}
+{"message_id":"build","event":"output","data":"-- Opus: Applied Xtensa LX7 optimizations\n"}
+{"message_id":"build","event":"output","data":"-- Opus: Using THREADSAFE_PSEUDOSTACK mode with 120000 byte pseudostack\n"}
+{"message_id":"build","event":"output","data":"-- Opus: Using floating-point implementation for esp32s3\n"}
+{"message_id":"build","event":"output","data":"-- Opus: Xtensa optimizations enabled\n"}
+{"message_id":"build","event":"output","data":"-- Component idf::sendspin__sendspin-cpp will be linked with -Wl,--whole-archive\n"}
+{"message_id":"build","event":"output","data":"-- Configuring done (3.4s)\n"}
+{"message_id":"build","event":"output","data":"-- Generating done (0.5s)\n"}
+{"message_id":"build","event":"output","data":"-- Build files have been written to: /config/.esphome/build/sendspin-project-v2/build\n"}
+{"message_id":"build","event":"output","data":"\\033[32mINFO Compiling with a precompiled header (set ESPHOME_PCH_ENABLE=0 to disable)\\033[0m\n"}
+{"message_id":"build","event":"output","data":"[976/1971] Building C object esp-idf/esphome__micro-opus/CMakeFiles/__idf_esphome__micro-opus.dir/opus-staged/silk/NLSF2A.c.obj\\033[K\n"}
+{"message_id":"build","event":"output","data":"In function '\\033[01m\\033[Ksilk_NLSF2A_find_poly\\033[m\\033[K',\n"}
+{"message_id":"build","event":"output","data":"    inlined from '\\033[01m\\033[Ksilk_NLSF2A\\033[m\\033[K' at \\033[01m\\033[Kesp-idf/esphome__micro-opus/opus-staged/silk/NLSF2A.c:116:5\\033[m\\033[K:\n"}
+{"message_id":"build","event":"output","data":"\\033[01m\\033[Kesp-idf/esphome__micro-opus/opus-staged/silk/NLSF2A.c:54:19:\\033[m\\033[K \\033[01;35m\\033[Kwarning: \\033[m\\033[K'\\033[01m\\033[Kcos_LSF_QA\\033[m\\033[K' may be used uninitialized [\\033[01;35m\\033[K-Wmaybe-uninitialized\\033[m\\033[K]\n"}
+{"message_id":"build","event":"output","data":"   54 |     out[1] = -\\033[01;35m\\033[KcLSF[0]\\033[m\\033[K;\n"}
+{"message_id":"build","event":"output","data":"      |               \\033[01;35m\\033[K~~~~^~~\\033[m\\033[K\n"}
+{"message_id":"build","event":"output","data":"\\033[01m\\033[Kesp-idf/esphome__micro-opus/opus-staged/silk/NLSF2A.c:\\033[m\\033[K In function '\\033[01m\\033[Ksilk_NLSF2A\\033[m\\033[K':\n"}
+{"message_id":"build","event":"output","data":"\\033[01m\\033[Kesp-idf/esphome__micro-opus/opus-staged/silk/NLSF2A.c:83:16:\\033[m\\033[K \\033[01;36m\\033[Knote: \\033[m\\033[K'\\033[01m\\033[Kcos_LSF_QA\\033[m\\033[K' declared here\n"}
+{"message_id":"build","event":"output","data":"   83 |     opus_int32 \\033[01;36m\\033[Kcos_LSF_QA\\033[m\\033[K[ SILK_MAX_ORDER_LPC ];\n"}
+{"message_id":"build","event":"output","data":"      |                \\033[01;36m\\033[K^~~~~~~~~~\\033[m\\033[K\n"}
+{"message_id":"build","event":"output","data":"In function '\\033[01m\\033[Ksilk_NLSF2A_find_poly\\033[m\\033[K',\n"}
+{"message_id":"build","event":"output","data":"    inlined from '\\033[01m\\033[Ksilk_NLSF2A\\033[m\\033[K' at \\033[01m\\033[Kesp-idf/esphome__micro-opus/opus-staged/silk/NLSF2A.c:117:5\\033[m\\033[K:\n"}
+{"message_id":"build","event":"output","data":"\\033[01m\\033[Kesp-idf/esphome__micro-opus/opus-staged/silk/NLSF2A.c:54:19:\\033[m\\033[K \\033[01;35m\\033[Kwarning: \\033[m\\033[K'\\033[01m\\033[Kcos_LSF_QA\\033[m\\033[K' may be used uninitialized [\\033[01;35m\\033[K-Wmaybe-uninitialized\\033[m\\033[K]\n"}
+{"message_id":"build","event":"output","data":"   54 |     out[1] = -\\033[01;35m\\033[KcLSF[0]\\033[m\\033[K;\n"}
+{"message_id":"build","event":"output","data":"      |               \\033[01;35m\\033[K~~~~^~~\\033[m\\033[K\n"}
+{"message_id":"build","event":"output","data":"\\033[01m\\033[Kesp-idf/esphome__micro-opus/opus-staged/silk/NLSF2A.c:\\033[m\\033[K In function '\\033[01m\\033[Ksilk_NLSF2A\\033[m\\033[K':\n"}
+{"message_id":"build","event":"output","data":"\\033[01m\\033[Kesp-idf/esphome__micro-opus/opus-staged/silk/NLSF2A.c:83:16:\\033[m\\033[K \\033[01;36m\\033[Knote: \\033[m\\033[K'\\033[01m\\033[Kcos_LSF_QA\\033[m\\033[K' declared here\n"}
+{"message_id":"build","event":"output","data":"   83 |     opus_int32 \\033[01;36m\\033[Kcos_LSF_QA\\033[m\\033[K[ SILK_MAX_ORDER_LPC ];\n"}
+{"message_id":"build","event":"output","data":"      |                \\033[01;36m\\033[K^~~~~~~~~~\\033[m\\033[K\n"}
+{"message_id":"build","event":"output","data":"[0/1] Re-running CMake...\\033[K\n"}
+{"message_id":"build","event":"output","data":"-- Component directory /config/.esphome/idf/frameworks/5.5.6/components/esp_blockdev does not contain a CMakeLists.txt file. No component will be added\n"}
+{"message_id":"build","event":"output","data":"-- Minimal build - OFF\n"}
+{"message_id":"build","event":"output","data":"-- Could not use 'git describe' to determine PROJECT_VER.\n"}
+{"message_id":"build","event":"output","data":"-- Building ESP-IDF components for target esp32s3\n"}
+{"message_id":"build","event":"output","data":"-- Project sdkconfig file /config/.esphome/build/sendspin-project-v2/sdkconfig.sendspin-project-v2\n"}
+{"message_id":"build","event":"output","data":"-- Compiler supported targets: xtensa-esp-elf\n"}
+{"message_id":"build","event":"output","data":"-- Detecting C compiler ABI info\n"}
+{"message_id":"build","event":"output","data":"-- Detecting C compiler ABI info - done\n"}
+{"message_id":"build","event":"output","data":"-- Detecting CXX compiler ABI info\n"}
+{"message_id":"build","event":"output","data":"-- Detecting CXX compiler ABI info - done\n"}
+{"message_id":"build","event":"output","data":"-- Detecting C compiler ABI info\n"}
+{"message_id":"build","event":"output","data":"-- Detecting C compiler ABI info - done\n"}
+{"message_id":"build","event":"output","data":"-- Detecting CXX compiler ABI info\n"}
+{"message_id":"build","event":"output","data":"-- Detecting CXX compiler ABI info - done\n"}
+{"message_id":"build","event":"output","data":"-- Bootloader project name: \"bootloader\" version: 1\n"}
+{"message_id":"build","event":"output","data":"-- Configuring done (1.2s)\n"}
+{"message_id":"build","event":"output","data":"-- Generating done (0.0s)\n"}
+{"message_id":"build","event":"output","data":"-- Build files have been written to: /config/.esphome/build/sendspin-project-v2/build/bootloader\n"}
+{"message_id":"build","event":"output","data":"[1/2] cd /config/.esphome/build/sendspin-project-v2/build/bootloader/esp-idf/esptool_py && /config/.esphome/idf/penvs/5.5.6/bin/python /config/.esphome/idf/frameworks/5.5.6/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /config/.esphome/build/sendspin-project-v2/build/bootloader/bootloader.bin\\033[K\n"}
+{"message_id":"build","event":"output","data":"Bootloader binary size 0x5020 bytes. 0x2fe0 bytes (37%) free.\n"}
+{"message_id":"build","event":"output","data":"[1458/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/opengles/lv_opengles_debug.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1459/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/opengles/lv_opengles_egl.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1460/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/opengles/lv_opengles_pbuffer.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1461/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/opengles/lv_opengles_texture.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1462/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/opengles/opengl_shader/lv_opengl_shader_program.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1463/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/opengles/lv_opengles_glfw.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1464/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/opengles/opengl_shader/lv_opengl_shader_manager.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1465/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/sdl/lv_sdl_egl.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1466/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/qnx/lv_qnx.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1467/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/sdl/lv_sdl_mouse.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1468/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/sdl/lv_sdl_keyboard.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1469/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/sdl/lv_sdl_sw.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1470/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/sdl/lv_sdl_mousewheel.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1471/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/sdl/lv_sdl_window.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1472/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/uefi/lv_uefi_context.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1473/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/uefi/lv_uefi_display.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1474/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/sdl/lv_sdl_texture.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1475/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/uefi/lv_uefi_indev_touch.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1476/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/uefi/lv_uefi_private.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1477/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/uefi/lv_uefi_indev_keyboard.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1478/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/uefi/lv_uefi_indev_pointer.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1479/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/wayland/lv_wayland.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1480/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/wayland/lv_wayland_backend_dmabuf.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1481/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/wayland/lv_wayland_backend.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1482/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/wayland/lv_wayland_backend_egl.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1483/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/wayland/lv_wayland_backend_shm.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1484/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/wayland/lv_wayland_dmabuf.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1485/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/wayland/lv_wayland_backend_g2d.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1486/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/wayland/lv_wayland_seat.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1487/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/wayland/lv_wayland_pointer.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1488/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/wayland/lv_wayland_window.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1489/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/wayland/lv_wayland_keyboard.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1490/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/wayland/lv_wayland_touch.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1491/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/windows/lv_windows_context.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1492/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/wayland/lv_wayland_xdg_shell.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1493/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/windows/lv_windows_input.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1494/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/x11/lv_x11_display.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1495/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/windows/lv_windows_display.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1496/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/drivers/x11/lv_x11_input.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1497/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/font_manager/lv_font_manager_recycle.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1498/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/font_manager/lv_font_manager.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1499/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/freetype/lv_freetype.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1500/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/freetype/lv_freetype_glyph.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1501/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/fmt_txt/lv_font_fmt_txt.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1502/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/binfont_loader/lv_binfont_loader.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1503/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/freetype/lv_freetype_outline.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1504/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/freetype/lv_freetype_image.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1505/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_10.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1506/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1507/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_dejavu_16_persian_hebrew.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1508/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/freetype/lv_ftsystem.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1509/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/imgfont/lv_imgfont.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1510/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_12.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1511/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_14_aligned.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1512/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_14.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1513/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_20.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1514/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_16.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1515/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_18.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1516/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_22.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1517/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_26.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1518/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_24.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1519/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_30.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1520/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_28_compressed.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1521/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_28.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1522/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_32.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1523/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_34.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1524/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_36.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1525/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_38.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1526/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_40.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1527/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_44.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1528/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_46.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1529/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_42.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1530/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_8.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1531/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_source_han_sans_sc_14_cjk.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1532/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_montserrat_48.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1533/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_unscii_16.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1534/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_unscii_8.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1535/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/fs/lv_fs_arduino_esp_littlefs.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1536/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/tiny_ttf/lv_tiny_ttf.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1537/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/font/lv_font_source_han_sans_sc_16_cjk.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1538/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/fs/lv_fs_fatfs.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1539/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/fs/lv_fs_frogfs.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1540/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/fs/lv_fs_memfs.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1541/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/fs/lv_fs_littlefs.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1542/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/fs/lv_fs_arduino_sd.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1543/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/fs/lv_fs_uefi.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1544/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/fs/lv_fs_win32.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1545/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/fs/lv_fs.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1546/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/fs/lv_fs_posix.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1547/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/fs/lv_fs_stdio.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1548/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/image/lv_bmp.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1549/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/image/lv_libjpeg_turbo.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1550/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/image/lv_lodepng.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1551/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/image/lv_libpng.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1552/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/image/lv_tjpgd.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1553/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/image/lv_image_decoder.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1554/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/image/lv_libwebp.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1555/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/image/svg/lv_svg.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1556/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/image/svg/lv_svg_parser.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1557/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/image/lv_bin_decoder.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1558/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/image/svg/lv_svg_render.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1559/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/indev/lv_gridnav.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1560/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/image/svg/lv_svg_decoder.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1561/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/image/svg/lv_svg_token.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1562/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/layouts/grid/lv_grid.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1563/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/indev/lv_indev_gesture.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1564/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/FT800-FT813/EVE_commands.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1565/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/layouts/lv_layout.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1566/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/FT800-FT813/EVE_supplemental.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1567/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/indev/lv_indev.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1568/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/layouts/flex/lv_flex.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1569/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/indev/lv_indev_scroll.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1570/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/barcode/code128.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1571/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/frogfs/src/decomp_raw.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1572/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/gif/gif.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1573/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/gltf/gltf_data/lv_gltf_data.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1574/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/frogfs/src/frogfs.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1575/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/gltf/gltf_data/lv_gltf_data_cache.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1576/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/gltf/gltf_data/lv_gltf_data_animations.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1577/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/gltf/gltf_data/lv_gltf_data_primitive.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1578/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/gltf/gltf_data/lv_gltf_data_skin.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1579/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/gltf/gltf_data/lv_gltf_data_injest.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1580/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/gltf/gltf_data/lv_gltf_data_mesh.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1581/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/gltf/gltf_data/lv_gltf_data_shader.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1582/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/gltf/gltf_data/lv_gltf_model_loader.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1583/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/gltf/gltf_data/lv_gltf_model_node.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1584/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/gltf/gltf_data/lv_gltf_data_texture.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1585/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/gltf/gltf_data/lv_gltf_uniform_locations.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1586/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/gltf/gltf_view/assets/lv_gltf_view_shader.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1587/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/gltf/gltf_environment/lv_gltf_ibl_sampler.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1588/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/gltf/gltf_view/lv_gltf_view_shader.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1589/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/gltf/gltf_view/assets/chromatic.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1590/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/gltf/gltf_view/lv_gltf_view.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1591/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/gltf/gltf_view/lv_gltf_view_render.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1592/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/gltf/math/lv_3dmath.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1593/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/gltf/math/lv_gltf_math.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1594/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/qrcode/qrcodegen.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1595/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/lz4/lz4.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1596/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/lodepng/lodepng.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1597/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/rlottie/lv_rlottie.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1598/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/rle/lv_rle.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1599/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/nanovg/nanovg.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1600/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgAccessor.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1601/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgCanvas.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1602/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgAnimation.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1603/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgCapi.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1604/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgFill.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1605/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgCompressor.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1606/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgGlCanvas.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1607/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgInitializer.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1608/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgLottieAnimation.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1609/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgLottieExpressions.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1610/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgLoader.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1611/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgLottieBuilder.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1612/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgLottieLoader.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1613/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgLottieInterpolator.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1614/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgLottieModifier.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1615/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgLottieModel.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1616/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgLottieParser.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1617/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgLottieParserHandler.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1618/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgPicture.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1619/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgRawLoader.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1620/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgMath.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1621/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgPaint.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1622/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgRender.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1623/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgShape.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1624/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgScene.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1625/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgSvgCssStyle.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1626/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgSaver.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1627/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgStr.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1628/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgSvgLoader.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1629/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgSvgPath.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1630/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgSvgSceneBuilder.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1631/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgSwFill.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1632/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgSwImage.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1633/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgSvgUtil.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1634/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgSwCanvas.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1635/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgSwMath.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1636/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgSwRaster.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1637/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgSwMemPool.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1638/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgSwRle.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1639/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgSwPostEffect.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1640/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgSwRenderer.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1641/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgSwStroke.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1642/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgTaskScheduler.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1643/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgSwShape.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1644/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgWgCanvas.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1645/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgText.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1646/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/tjpgd/tjpgd.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1647/1971] Building CXX object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/thorvg/tvgXmlParser.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1648/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/vg_lite_driver/VGLite/vg_lite_matrix.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1649/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/vg_lite_driver/VGLite/vg_lite_image.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1650/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/vg_lite_driver/VGLite/vg_lite.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1651/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/vg_lite_driver/VGLite/vg_lite_stroke.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1652/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/vg_lite_driver/lv_vg_lite_hal/lv_vg_lite_hal.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1653/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/vg_lite_driver/VGLite/vg_lite_path.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1654/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/vg_lite_driver/VGLiteKernel/vg_lite_kernel.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1655/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/logging/lv_log.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1656/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/libs/vg_lite_driver/lv_vg_lite_hal/vg_lite_os.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1657/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/lv_init.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1658/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/cache/instance/lv_image_cache.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1659/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/cache/lv_cache.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1660/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/cache/class/lv_cache_lru_ll.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1661/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/cache/class/lv_cache_lru_rb.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1662/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/cache/class/lv_cache_sc_da.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1663/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/cache/instance/lv_image_header_cache.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1664/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/cache/lv_cache_entry.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1665/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_async.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1666/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_anim_timeline.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1667/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_area.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1668/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_bidi.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1669/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_bidi_common.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1670/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_anim.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1671/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_array.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1672/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_circle_buf.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1673/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_color_op.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1674/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_color.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1675/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_grad.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1676/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_event.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1677/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_iter.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1678/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_lru.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1679/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_ll.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1680/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_matrix.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1681/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_palette.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1682/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_rb.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1683/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_pending.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1684/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_math.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1685/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_style.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1686/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_style_gen.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1687/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_text_ap.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1688/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_utils.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1689/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_tree.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1690/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_timer.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1691/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/osal/lv_freertos.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1692/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/osal/lv_linux.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1693/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/misc/lv_text.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1694/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/osal/lv_cmsis_rtos2.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1695/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/osal/lv_os.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1696/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/osal/lv_mqx.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1697/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/osal/lv_os_none.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1698/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/osal/lv_pthread.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1699/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/osal/lv_sdl2.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1700/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/osal/lv_rtthread.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1701/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/osal/lv_windows.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1702/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/others/fragment/lv_fragment.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1703/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/others/file_explorer/lv_file_explorer.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1704/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/others/fragment/lv_fragment_manager.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1705/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/stdlib/builtin/lv_sprintf_builtin.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1706/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/stdlib/builtin/lv_tlsf.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1707/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/others/translation/lv_translation.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1708/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/stdlib/builtin/lv_mem_core_builtin.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1709/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/stdlib/builtin/lv_string_builtin.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1710/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/stdlib/clib/lv_mem_core_clib.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1711/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/stdlib/clib/lv_sprintf_clib.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1712/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/stdlib/lv_mem.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1713/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/stdlib/micropython/lv_mem_core_micropython.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1714/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/stdlib/clib/lv_string_clib.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1715/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/stdlib/rtthread/lv_sprintf_rtthread.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1716/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/stdlib/rtthread/lv_mem_core_rtthread.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1717/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/stdlib/rtthread/lv_string_rtthread.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1718/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/stdlib/uefi/lv_mem_core_uefi.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1719/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/themes/default/lv_theme_default.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1720/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/themes/simple/lv_theme_simple.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1721/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/themes/mono/lv_theme_mono.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1722/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/themes/lv_theme.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1723/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/3dtexture/lv_3dtexture.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1724/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/arc/lv_arc.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1725/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/tick/lv_tick.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1726/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/animimage/lv_animimage.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1727/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/arclabel/lv_arclabel.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1728/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/barcode/lv_barcode.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1729/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/button/lv_button.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1730/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/calendar/lv_calendar.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1731/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/calendar/lv_calendar_chinese.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1732/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/bar/lv_bar.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1733/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/buttonmatrix/lv_buttonmatrix.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1734/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/calendar/lv_calendar_header_arrow.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1735/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/canvas/lv_canvas.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1736/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/calendar/lv_calendar_header_dropdown.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1737/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/dropdown/lv_dropdown.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1738/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/chart/lv_chart.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1739/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/checkbox/lv_checkbox.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1740/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/ffmpeg/lv_ffmpeg.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1741/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/gif/lv_gif.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1742/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/gstreamer/lv_gstreamer.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1743/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/ime/lv_ime_pinyin.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1744/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/keyboard/lv_keyboard.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1745/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/led/lv_led.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1746/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/line/lv_line.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1747/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/imagebutton/lv_imagebutton.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1748/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/list/lv_list.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1749/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/lottie/lv_lottie.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1750/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/image/lv_image.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1751/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/menu/lv_menu.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1752/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/label/lv_label.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1753/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/msgbox/lv_msgbox.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1754/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_arc_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1755/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_animimage_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1756/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_bar_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1757/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_chart_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1758/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_buttonmatrix_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1759/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_label_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1760/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_led_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1761/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_checkbox_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1762/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_dropdown_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1763/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_image_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1764/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_keyboard_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1765/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_line_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1766/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_obj_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1767/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_scale_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1768/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_menu_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1769/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_span_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1770/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_roller_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1771/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_spinbox_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1772/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_slider_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1773/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_spinner_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1774/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_tabview_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1775/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_switch_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1776/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_style_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1777/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_table_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1778/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/roller/lv_roller.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1779/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/qrcode/lv_qrcode.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1780/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/scale/lv_scale.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1781/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/property/lv_textarea_properties.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1782/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/spinbox/lv_spinbox.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1783/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/switch/lv_switch.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1784/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/table/lv_table.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1785/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/span/lv_span.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1786/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/spinner/lv_spinner.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1787/1971] Linking C static library esp-idf/espressif__esp_websocket_client/libespressif__esp_websocket_client.a\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1788/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/tabview/lv_tabview.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1789/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/crypto/constants.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1790/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/tileview/lv_tileview.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1791/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/crypto/keys.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1792/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/slider/lv_slider.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1793/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/crypto/cpace.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1794/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/textarea/lv_textarea.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1795/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/crypto/pairing_code.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1796/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/crypto/psk_wrap.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1797/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/crypto/pairing_token.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1798/1971] Linking C static library esp-idf/esphome__micro-opus/libesphome__micro-opus.a\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1799/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/noise_transport.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1800/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/transfer_buffer.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1801/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/noise_session.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1802/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/noise_handshake.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1803/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/time_burst.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1804/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/protocol.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1805/1971] Building C object esp-idf/lvgl__lvgl/CMakeFiles/__idf_lvgl__lvgl.dir/src/widgets/win/lv_win.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1806/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/time_filter.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1807/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/connection.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1808/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/connection_manager.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1809/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/connection_manager_pairing.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1810/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/persistence_codec.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1811/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/record_store.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1812/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/protocol_task.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1813/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/inbound_ring.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1814/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/outbound_ring.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1815/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/client_dispatch.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1816/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/client.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1817/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/esp/network_info.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1818/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/esp/server_connection.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1819/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/esp/ws_server.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1820/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/decoder.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1821/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/esp/client_connection.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1822/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/metadata_role.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1823/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/sync_task.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1824/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/artwork_role.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1825/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/player_role.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1826/1971] Building CXX object esp-idf/sendspin__sendspin-cpp/CMakeFiles/__idf_sendspin__sendspin-cpp.dir/src/controller_role.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1827/1971] Building C object esp-idf/zorxx__multipart-parser/CMakeFiles/__idf_zorxx__multipart-parser.dir/multipart_parser.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1828/1971] Linking C static library esp-idf/esp_lcd/libesp_lcd.a\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1829/1971] Linking C static library esp-idf/touch_element/libtouch_element.a\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1830/1971] Linking C static library esp-idf/usb/libusb.a\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1831/1971] Linking C static library esp-idf/esphome__esp-audio-libs/libesphome__esp-audio-libs.a\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1832/1971] Linking C static library esp-idf/zorxx__multipart-parser/libzorxx__multipart-parser.a\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1833/1971] Building ASM object esp-idf/JPEGDEC/CMakeFiles/__idf_JPEGDEC.dir/src/s3_simd_420.S.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1834/1971] Building CXX object esp-idf/JPEGDEC/CMakeFiles/__idf_JPEGDEC.dir/src/JPEGDEC.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1835/1971] Building ASM object esp-idf/JPEGDEC/CMakeFiles/__idf_JPEGDEC.dir/src/s3_simd_444.S.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1836/1971] Linking C static library esp-idf/espressif__mdns/libespressif__mdns.a\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1837/1971] Building C object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/core/lwip_fast_select.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1838/1971] Building C object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/core/main_task.c.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1839/1971] No install step for 'bootloader'\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1840/1971] Completed 'bootloader'\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1841/1971] Linking C static library esp-idf/espressif__esp-dsp/libespressif__esp-dsp.a\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1842/1971] Linking C static library esp-idf/sendspin__sendspin-cpp/libsendspin__sendspin-cpp.a\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1843/1971] Linking C static library esp-idf/lvgl__lvgl/liblvgl__lvgl.a\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1844/1971] Linking C static library esp-idf/JPEGDEC/libJPEGDEC.a\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1845/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/cmake_pch.hxx.gch\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1846/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/api/api_frame_helper.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1847/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/api/api_buffer.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1848/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/api/api_frame_helper_noise.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1849/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/api/api_overflow_buffer.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1850/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/api/api_pb2_service.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1851/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/api/api_pb2.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1852/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/api/subscribe_state.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1853/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/api/proto.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1854/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/api/list_entities.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1855/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/audio/audio.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1856/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/api/api_server.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1857/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/audio/audio_reader.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1858/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/api/api_connection.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1859/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/audio/audio_transfer_buffer.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1860/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/binary_sensor/binary_sensor.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1861/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/audio/audio_decoder.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1862/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/audio/audio_resampler.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1863/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/binary_sensor/filter.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1864/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/display/rect.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1865/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/cst816/touchscreen/cst816_touchscreen.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1866/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/display/display_buffer.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1867/1971] Generating esp-idf/esp_system/ld/sections.ld\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1868/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/esp32/atexit_stubs.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1869/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/captive_portal/captive_portal.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1870/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/es8311/es8311.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1871/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/esp32/core.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1872/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/esp32/gpio.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1873/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/esp32/crash_handler.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1874/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/esp32/hal.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1875/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/esp32/printf_stubs.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1876/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/esp32/vasprintf_stubs.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1877/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/display/display.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1878/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/esp32/throw_stubs.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1879/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/esp32/helpers.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1880/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/esphome/ota/ota_esphome_inflate_session.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1881/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/esp32/preferences.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1882/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/esphome/ota/ota_esphome_noise.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1883/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/gpio/switch/gpio_switch.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1884/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/esphome/ota/ota_esphome_udp.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1885/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/gpio/binary_sensor/gpio_binary_sensor.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1886/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/gpio_expander/cached_gpio_component.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1887/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/font/font.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1888/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/i2c/i2c.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1889/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/esphome/ota/ota_esphome.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1890/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/i2c/i2c_bus_esp_idf.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1891/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/i2s_audio/speaker/i2s_audio_speaker.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1892/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/key_provider/key_provider.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1893/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/logger/task_log_buffer_esp32.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1894/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/i2s_audio/speaker/i2s_audio_speaker_standard.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1895/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/md5/md5.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1896/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/logger/logger.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1897/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/logger/logger_esp32.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1898/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/image/image.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1899/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/mdns/mdns_esp32.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1900/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/network/network_component.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1901/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/media_player/media_player.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1902/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/noise/noise.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1903/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/mdns/mdns_component.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1904/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/noise/noise_handshake.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1905/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/network/util.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1906/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/lvgl/lvgl_esphome.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1907/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/ota/ota_backend.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1908/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/ota/ota_backend_esp_idf.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1909/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/pca9554/pca9554.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1910/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/mipi_spi/mipi_spi.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1911/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/psram/psram.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1912/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/runtime_image/image_format.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1913/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/ring_buffer/ring_buffer.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1914/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/script/script.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1915/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/runtime_image/image_decoder.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1916/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/safe_mode/safe_mode.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1917/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/runtime_image/runtime_image.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1918/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/runtime_image/jpeg_decoder.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1919/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/sendspin/media_player/sendspin_media_player.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1920/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/sendspin/media_source/sendspin_media_source.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1921/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/sensor/sensor.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1922/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/sha256/sha256.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1923/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/sendspin/sensor/sendspin_sensor.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1924/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/sendspin/image/sendspin_image.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1925/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/socket/socket.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1926/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/socket/bsd_sockets_impl.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1927/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/speaker/announcement_volume.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1928/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/sendspin/text_sensor/sendspin_text_sensor.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1929/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/switch/switch.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1930/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/sendspin/sendspin_hub.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1931/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/template/binary_sensor/template_binary_sensor.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1932/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/text_sensor/text_sensor.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1933/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/spi/spi.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1934/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/spi/spi_esp_idf.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1935/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/watchdog/watchdog.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1936/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/unicode/unicode.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1937/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/web_server_base/origin.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1938/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/web_server_base/dns_server_esp32_idf.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1939/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/touchscreen/touchscreen.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1940/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/web_server_idf/sse_chunk.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1941/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/web_server_base/web_server_base.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1942/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/web_server_idf/utils.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1943/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/speaker_source/speaker_source_media_player.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1944/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/web_server_idf/multipart.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1945/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/web_server/ota/ota_web_server.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1946/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/wifi_info/wifi_info_text_sensor.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1947/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/wifi_signal/wifi_signal_sensor.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1948/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/web_server_idf/web_server_idf.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1949/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/core/build_info_data.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1950/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/wifi/wifi_component_esp_idf.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1951/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/core/application.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1952/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/core/alloc_helpers.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1953/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/core/color.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1954/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/core/entity_base.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1955/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/core/component_iterator.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1956/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/core/gpio.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1957/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/core/component.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1958/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/core/log.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1959/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/components/wifi/wifi_component.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1960/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/core/time.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1961/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/core/wake/wake_freertos.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1962/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/core/scheduler.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1963/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/core/static_task.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1964/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/esphome/core/helpers.cpp.obj\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1965/1971] Building CXX object esp-idf/src/CMakeFiles/__idf_src.dir/main.cpp.obj\\033[K\n"}
+{"message_id":"build","event":"output","data":"\\033[01m\\033[K/config/sendspin-project-v2.yaml:\\033[m\\033[K In lambda function:\n"}
+{"message_id":"build","event":"output","data":"\\033[01m\\033[K/config/sendspin-project-v2.yaml:390:29:\\033[m\\033[K \\033[01;35m\\033[Kwarning: \\033[m\\033[K'\\033[01m\\033[Kbool\\033[01;32m\\033[K lv_obj_has_flag\\033[m\\033[K(const lv_obj_t*, lv_obj_flag_t)\\033[m\\033[K' is deprecated: Use the dedicated lv_obj_is_<flag>() functions instead, e.g. lv_obj_is_hidden(obj). [\\033[01;35m\\033[K-Wdeprecated-declarations\\033[m\\033[K]\n"}
+{"message_id":"build","event":"output","data":"  390 |             l\\033[01;35m\\033[Kambda: 'return lv_obj_has_flag(id(art_bg), \\033[m\\033[KLV_OBJ_FLAG_HIDDEN);'\n"}
+{"message_id":"build","event":"output","data":"      |              \\033[01;35m\\033[K~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~\\033[m\\033[K\n"}
+{"message_id":"build","event":"output","data":"In file included from \\033[01m\\033[K../managed_components/lvgl__lvgl/include/lvgl/lvgl.h:21\\033[m\\033[K,\n"}
+{"message_id":"build","event":"output","data":"                 from \\033[01m\\033[K../managed_components/lvgl__lvgl/lvgl.h:1\\033[m\\033[K,\n"}
+{"message_id":"build","event":"output","data":"                 from \\033[01m\\033[K../src/esphome/components/lvgl/lvgl_proxy.h:13\\033[m\\033[K,\n"}
+{"message_id":"build","event":"output","data":"                 from \\033[01m\\033[K../src/esphome/core/color.h:8\\033[m\\033[K,\n"}
+{"message_id":"build","event":"output","data":"                 from \\033[01m\\033[K../src/esphome/components/display/display.h:8\\033[m\\033[K,\n"}
+{"message_id":"build","event":"output","data":"                 from \\033[01m\\033[K../src/esphome/components/touchscreen/touchscreen.h:4\\033[m\\033[K,\n"}
+{"message_id":"build","event":"output","data":"                 from \\033[01m\\033[K../src/esphome/components/cst816/touchscreen/cst816_touchscreen.h:4\\033[m\\033[K,\n"}
+{"message_id":"build","event":"output","data":"                 from \\033[01m\\033[K../src/esphome.h:35\\033[m\\033[K,\n"}
+{"message_id":"build","event":"output","data":"                 from \\033[01m\\033[K../src/main.cpp:3\\033[m\\033[K:\n"}
+{"message_id":"build","event":"output","data":"\\033[01m\\033[K../managed_components/lvgl__lvgl/include/lvgl/core/lv_obj.h:545:6:\\033[m\\033[K \\033[01;36m\\033[Knote: \\033[m\\033[Kdeclared here\n"}
+{"message_id":"build","event":"output","data":"  545 | bool \\033[01;36m\\033[Klv_obj_has_flag\\033[m\\033[K(const lv_obj_t * obj, lv_obj_flag_t f);\n"}
+{"message_id":"build","event":"output","data":"      |      \\033[01;36m\\033[K^~~~~~~~~~~~~~~\\033[m\\033[K\n"}
+{"message_id":"build","event":"output","data":"\r"}
+{"message_id":"build","event":"output","data":"[1966/1971] Linking C static library esp-idf/src/libsrc.a\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1967/1971] Linking CXX executable sendspin-project-v2.elf\\033[K\r"}
+{"message_id":"build","event":"output","data":"[1967/1971] cd /config/.esphome/build/sendspin-project-v2/build && /config/.esphome/idf/tools/cmake/3.30.2/bin/cmake -D \"IDF_SIZE_TOOL=/config/.esphome/idf/penvs/5.5.6/bin/python;-m;esp_idf_size\" -D MAP_FILE=/config/.esphome/build/sendspin-project-v2/build/sendspin-project-v2.map -D OUTPUT_JSON= -P /config/.esphome/idf/frameworks/5.5.6/tools/cmake/run_size_tool.cmake\\033[K\n"}
+{"message_id":"build","event":"output","data":"\\033[3m\\033[0m┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓\n"}
+{"message_id":"build","event":"output","data":"┃\\033[1m \\033[0m\\033[1mMemory Type/Section\\033[0m\\033[1m \\033[0m┃\\033[1m \\033[0m\\033[1mUsed [bytes]\\033[0m\\033[1m \\033[0m┃\\033[1m \\033[0m\\033[1mUsed [%]\\033[0m\\033[1m \\033[0m┃\\033[1m \\033[0m\\033[1mRemain [bytes]\\033[0m\\033[1m \\033[0m┃\\033[1m \\033[0m\\033[1mTotal [bytes]\\033[0m\\033[1m \\033[0m┃\n"}
+{"message_id":"build","event":"output","data":"┡━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩\n"}
+{"message_id":"build","event":"output","data":"│\\033[91m \\033[0m\\033[91mFlash Code         \\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m     1244528\\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m        \\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m              \\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m             \\033[0m\\033[91m \\033[0m│\n"}
+{"message_id":"build","event":"output","data":"│\\033[94m \\033[0m\\033[94m   .text           \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m     1244528\\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m        \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m              \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m             \\033[0m\\033[94m \\033[0m│\n"}
+{"message_id":"build","event":"output","data":"│\\033[91m \\033[0m\\033[91mFlash Data         \\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m      394876\\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m        \\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m              \\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m             \\033[0m\\033[91m \\033[0m│\n"}
+{"message_id":"build","event":"output","data":"│\\033[94m \\033[0m\\033[94m   .rodata         \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m      394612\\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m        \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m              \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m             \\033[0m\\033[94m \\033[0m│\n"}
+{"message_id":"build","event":"output","data":"│\\033[94m \\033[0m\\033[94m   .appdesc        \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m         256\\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m        \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m              \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m             \\033[0m\\033[94m \\033[0m│\n"}
+{"message_id":"build","event":"output","data":"│\\033[94m \\033[0m\\033[94m   .tdata          \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m           8\\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m        \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m              \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m             \\033[0m\\033[94m \\033[0m│\n"}
+{"message_id":"build","event":"output","data":"│\\033[91m \\033[0m\\033[91mDIRAM              \\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m      117955\\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m   34.51\\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m        223805\\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m       341760\\033[0m\\033[91m \\033[0m│\n"}
+{"message_id":"build","event":"output","data":"│\\033[94m \\033[0m\\033[94m   .text           \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m       62911\\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m   18.41\\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m              \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m             \\033[0m\\033[94m \\033[0m│\n"}
+{"message_id":"build","event":"output","data":"│\\033[94m \\033[0m\\033[94m   .bss            \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m       35560\\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m    10.4\\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m              \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m             \\033[0m\\033[94m \\033[0m│\n"}
+{"message_id":"build","event":"output","data":"│\\033[94m \\033[0m\\033[94m   .data           \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m       19324\\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m    5.65\\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m              \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m             \\033[0m\\033[94m \\033[0m│\n"}
+{"message_id":"build","event":"output","data":"│\\033[94m \\033[0m\\033[94m   .noinit         \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m         160\\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m    0.05\\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m              \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m             \\033[0m\\033[94m \\033[0m│\n"}
+{"message_id":"build","event":"output","data":"│\\033[91m \\033[0m\\033[91mIRAM               \\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m       16384\\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m   100.0\\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m             0\\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m        16384\\033[0m\\033[91m \\033[0m│\n"}
+{"message_id":"build","event":"output","data":"│\\033[94m \\033[0m\\033[94m   .text           \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m       15356\\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m   93.73\\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m              \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m             \\033[0m\\033[94m \\033[0m│\n"}
+{"message_id":"build","event":"output","data":"│\\033[94m \\033[0m\\033[94m   .vectors        \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m        1028\\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m    6.27\\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m              \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m             \\033[0m\\033[94m \\033[0m│\n"}
+{"message_id":"build","event":"output","data":"│\\033[91m \\033[0m\\033[91mRTC SLOW           \\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m          32\\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m    0.39\\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m          8160\\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m         8192\\033[0m\\033[91m \\033[0m│\n"}
+{"message_id":"build","event":"output","data":"│\\033[94m \\033[0m\\033[94m   .force_slow     \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m          32\\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m    0.39\\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m              \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m             \\033[0m\\033[94m \\033[0m│\n"}
+{"message_id":"build","event":"output","data":"│\\033[91m \\033[0m\\033[91mRTC FAST           \\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m          24\\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m    0.29\\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m          8168\\033[0m\\033[91m \\033[0m│\\033[91m \\033[0m\\033[91m         8192\\033[0m\\033[91m \\033[0m│\n"}
+{"message_id":"build","event":"output","data":"│\\033[94m \\033[0m\\033[94m   .rtc_reserved   \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m          24\\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m    0.29\\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m              \\033[0m\\033[94m \\033[0m│\\033[94m \\033[0m\\033[94m             \\033[0m\\033[94m \\033[0m│\n"}
+{"message_id":"build","event":"output","data":"└─────────────────────┴──────────────┴──────────┴────────────────┴───────────────┘\n"}
+{"message_id":"build","event":"output","data":"Total image size: \\033[1;36m1738047\\033[0m bytes \\033[1m(\\033[0m.bin may be padded larger\\033[1m)\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[33m\\033[0m\r"}
+{"message_id":"build","event":"output","data":"[1968/1971] Generating binary image from built executable\\033[K\n"}
+{"message_id":"build","event":"output","data":"esptool.py v4.13.0\n"}
+{"message_id":"build","event":"output","data":"Creating esp32s3 image...\n"}
+{"message_id":"build","event":"output","data":"Merged 2 ELF sections\n"}
+{"message_id":"build","event":"output","data":"Successfully created esp32s3 image.\n"}
+{"message_id":"build","event":"output","data":"Generated /config/.esphome/build/sendspin-project-v2/build/sendspin-project-v2.bin\n"}
+{"message_id":"build","event":"output","data":"\r"}
+{"message_id":"build","event":"output","data":"[1969/1971] cd /config/.esphome/build/sendspin-project-v2/build/esp-idf/esptool_py && /config/.esphome/idf/penvs/5.5.6/bin/python /config/.esphome/idf/frameworks/5.5.6/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /config/.esphome/build/sendspin-project-v2/build/partition_table/partition-table.bin /config/.esphome/build/sendspin-project-v2/build/sendspin-project-v2.bin\\033[K\n"}
+{"message_id":"build","event":"output","data":"sendspin-project-v2.bin binary size 0x1a85b0 bytes. Smallest app partition is 0x7c0000 bytes. 0x617a50 bytes (79%) free.\n"}
+{"message_id":"build","event":"output","data":"RAM:   [===       ]  34.5% (used 117955 bytes from 341760 bytes)\n"}
+{"message_id":"build","event":"output","data":"Flash: [==        ]  21.4% (used 1738047 bytes from 8126464 bytes)\n"}
+{"message_id":"build","event":"output","data":"\\033[32mINFO Creating factory.bin...\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[32mINFO Created: /config/.esphome/build/sendspin-project-v2/build/firmware.factory.bin\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[32mINFO Created: /config/.esphome/build/sendspin-project-v2/build/firmware.ota.bin\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[32mINFO Created: /config/.esphome/build/sendspin-project-v2/build/firmware.elf\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[32mINFO Build Info: config_hash=0x320d555f build_time_str=2026-11-20 20:50:58 +1300\\033[0m\n"}
+{"message_id":"build","event":"output","data":"\\033[32mINFO Successfully compiled program.\\033[0m\n"}
+{"message_id":"build","event":"result","data":{"status":"completed","exit_code":0,"error":null,"queued_update_armed":false}}

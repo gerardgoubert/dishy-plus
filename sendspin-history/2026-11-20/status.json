@@ -1,0 +1,37 @@
+{
+  "saved_at_utc": "2026-11-20T08:49:31.845120+00:00",
+  "device": "sendspin-project-v2",
+  "device_ip": "192.168.60.103",
+  "dashboard": "https://esphome.nz.local.bespoken.technology",
+  "canonical_configuration": "../../sendspin-project-v2.yaml",
+  "configuration_sha256": "5776aebe49c2ea41458cd19f47b75cf25333a10ec46673ae453711721a728f9d",
+  "server_validation": {
+    "yaml_errors": [],
+    "validation_errors": []
+  },
+  "current_state": {
+    "display_bus_mhz": 40,
+    "scrolling_title_and_artist": true,
+    "unicode_apostrophe_fonts": true,
+    "opaque_incrementally_predimmed_artwork": true,
+    "metadata_missing_artwork_blanking": true,
+    "i2s_keep_alive": false,
+    "speaker_buffer_ms": 500,
+    "custom_timing_diagnostic_component_installed": false
+  },
+  "verification": {
+    "apostrophe_rendering": "User visually confirmed correct.",
+    "scrolling": "User visually confirmed working.",
+    "artwork_appearance": "User visually confirmed good.",
+    "missing_artwork_blanking": "Implemented and deployed; genuine permanently artwork-free track not conclusively verified.",
+    "keep_alive_test": "No demonstrated improvement; restored disabled setting.",
+    "latency": "Intermittent stalls remain. API log wall-clock timestamps are client receipt times, not precise device event times. PLAYING is not first audio output.",
+    "custom_diagnostics": "Research canceled at user request; no custom component created or deployed."
+  },
+  "archive_contents": {
+    "moved_session_backups": 6,
+    "copied_diagnostic_captures": 13,
+    "preserved_pre_sync_local_copy": true
+  },
+  "git_commit_created": false
+}

@@ -1,0 +1,773 @@
+# Board: Waveshare ESP32-S3-Touch-AMOLED-1.8 V2 (CO5300 display, CST820 touch, ES8311 codec)
+# Items marked VERIFY are unconfirmed against an official schematic / the Sendspin docs.
+
+esphome:
+  name: sendspin-project-v2
+  friendly_name: Sendspin project v2
+  # After everything is set up, sync the volume slider/label to the volume
+  # the speaker actually restored from flash (otherwise the slider shows 0).
+  on_boot:
+    priority: -100
+    then:
+      - script.execute: sync_volume_ui
+      - script.execute: update_progress_ui
+      - lambda: |-
+          // Metadata is full state: a missing/empty URL means no album artwork.
+          // Register on the hub so this also works when no binary clear arrives.
+          id(test_sendspin_client).add_metadata_update_callback([](const auto &metadata) {
+            const bool allowed = metadata.artwork_url.has_value() &&
+                                 !metadata.artwork_url.value().empty();
+            if (id(artwork_allowed) != allowed) {
+              ESP_LOGD("artwork.render", "Metadata artwork: %s", allowed ? "available" : "none; blanking");
+            }
+            id(artwork_allowed) = allowed;
+            if (!allowed) id(clear_artwork_ui).execute();
+          });
+      # The audio_output_ready binary sensor enables the amplifier only
+      # after the playback pipeline has started I2S. Do not start it here.
+
+esp32:
+  board: esp32-s3-devkitc-1
+  variant: esp32s3
+  flash_size: 16MB
+  framework:
+    type: esp-idf
+
+psram:
+  mode: octal
+  speed: 80MHz
+
+logger:
+
+api:
+  encryption:
+    key: !secret sendspin_api_key
+
+ota:
+  - platform: esphome
+    password: !secret sendspin_project__ota_password
+
+wifi:
+  networks:
+    # Primary network: tried first whenever it is in range.
+    - ssid: !secret wifi_ssid_1
+      password: !secret wifi_password_1
+      priority: 10
+    # Fallback network: used when the primary is not available.
+    - ssid: !secret wifi_ssid_2
+      password: !secret wifi_password_2
+      priority: 0
+  on_connect:
+    # Works for either network: show whichever SSID we actually joined.
+    - lvgl.widget.update: {id: dot_wifi, bg_color: 0x2ECC71}
+    - lvgl.label.update:
+        id: lbl_wifi_ssid
+        text: !lambda |-
+          char buf[wifi::SSID_BUFFER_SIZE];
+          return std::string(wifi::global_wifi_component->wifi_ssid_to(buf));
+  on_disconnect:
+    - lvgl.widget.update: {id: dot_wifi, bg_color: 0xE74C3C}
+    - lvgl.widget.update: {id: lbl_wifi_icon, text_color: 0x888888}
+    - lvgl.widget.update: {id: lbl_wifi_rssi, text_color: 0x888888}
+    - lvgl.label.update: {id: lbl_wifi_ssid, text: "Wi-Fi disconnected"}
+    - lvgl.label.update: {id: lbl_wifi_rssi, text: "-- dBm"}
+  ap:
+    ssid: Sendspin Fallback Hotspot
+    password: !secret sendspin_ap_password
+captive_portal:
+
+# ---------- Buses ----------
+i2c:
+  - id: i2c_1
+    sda: GPIO15
+    scl: GPIO14
+    scan: true
+
+spi:
+  - id: spi_1
+    type: quad
+    clk_pin: GPIO11
+    data_pins: [GPIO4, GPIO5, GPIO6, GPIO7]
+
+# TCA9554 I/O expander at 0x20
+# EXIO0 = LCD reset, EXIO2 = touch reset, EXIO7 = panel power (V2)   VERIFY
+pca9554:
+  - id: expander
+    address: 0x20
+    i2c_id: i2c_1
+
+switch:
+  - platform: gpio
+    id: panel_power
+    pin:
+      pca9554: expander
+      number: 7
+      mode: output
+    restore_mode: ALWAYS_ON
+  # Hold the Class-D amplifier off during codec and I2S bring-up.
+  # audio_output_ready enables it after I2S is running and has settled.
+  - platform: gpio
+    id: speaker_amp
+    pin: GPIO46
+    restore_mode: ALWAYS_OFF
+
+# ---------- Display & touch ----------
+display:
+  - platform: mipi_spi
+    id: amoled
+    model: CO5300
+    bus_mode: quad
+    # Increase transfer throughput from the driver's 10 MHz default.
+    data_rate: 40MHz
+    spi_id: spi_1
+    cs_pin: GPIO12
+    reset_pin:
+      pca9554: expander
+      number: 0
+    dimensions:
+      width: 368
+      height: 448
+      offset_width: 16   # VERIFY: V2 visible area reportedly starts at RAM column 16
+    color_order: rgb
+    invert_colors: false
+    brightness: 153
+    update_interval: never
+    auto_clear_enabled: false
+
+touchscreen:
+  - platform: cst816          # CST820 is compatible (address 0x15)
+    id: touchscreen_1
+    display: amoled
+    i2c_id: i2c_1
+    interrupt_pin: GPIO21
+    reset_pin:
+      pca9554: expander
+      number: 2
+
+  
+# ---------- Audio ----------
+i2s_audio:
+  - id: i2s_out
+    i2s_lrclk_pin: GPIO45
+    i2s_bclk_pin: GPIO9
+    i2s_mclk_pin: GPIO16      # VERIFY
+
+audio_dac:
+  - platform: es8311
+    id: dac
+    i2c_id: i2c_1
+    address: 0x18
+    sample_rate: 48000
+
+speaker:
+  - platform: i2s_audio
+    id: spk
+    i2s_audio_id: i2s_out
+    i2s_dout_pin: GPIO8
+    dac_type: external
+    audio_dac: dac
+    channel: stereo
+    # Must match the Sendspin media_source sample rate (48 kHz default),
+    # otherwise the pipeline needs a resampler speaker. Platform default
+    # is only 16000.
+    sample_rate: 48000
+    # Do not stop the speaker merely because its input is temporarily idle.
+    # The media player can still explicitly stop/finish the speaker.
+    timeout: never
+    # Reuse I2S resources across explicit media-player stop/start cycles.
+    keep_alive: false
+
+# ---------- Sendspin ----------
+sendspin:
+  id: test_sendspin_client
+  task_stack_in_psram: true
+
+# Decodes the synchronized Sendspin stream into PCM. This is what actually
+# produces audio; the sendspin media_player below does not.
+media_source:
+  - platform: sendspin
+    id: sendspin_source
+    task_stack_in_psram: true
+
+media_player:
+  # Plays audio out of the onboard speaker (I2S -> ES8311 -> amp on GPIO46).
+  - platform: speaker_source
+    name: Sendspin Speaker
+    id: media_player_speaker_1
+    # State publications include volume changes received from Music Assistant.
+    on_state:
+      - script.execute: sync_volume_ui
+    media_pipeline:
+      speaker: spk
+      sources:
+        - sendspin_source
+
+  # Group transport/volume control only - sends commands to the Sendspin
+  # server and emits no audio on this device.
+  - platform: sendspin
+    name: Sendspin Test Media Player
+    id: media_player_sendspin_1
+    # Swap the button icon between play and pause to reflect state.
+    on_play:
+      - lvgl.label.update:
+          id: lbl_play_pause
+          text: "\uF04C"   # pause symbol
+    on_pause:
+      - lvgl.label.update:
+          id: lbl_play_pause
+          text: "\uF04B"   # play symbol
+    on_idle:
+      - lvgl.label.update:
+          id: lbl_play_pause
+          text: "\uF04B"   # play symbol
+
+text_sensor:
+  - platform: sendspin
+    type: title
+    id: track_title
+    on_value:
+      # Preserve the current scrolling animation on repeated metadata.
+      - lambda: |-
+          if (id(lbl_title) != nullptr && x != lv_label_get_text(id(lbl_title))) {
+            lv_label_set_text(id(lbl_title), x.c_str());
+          }
+  - platform: sendspin
+    type: artist
+    id: track_artist
+    on_value:
+      - lambda: |-
+          if (id(lbl_artist) != nullptr && x != lv_label_get_text(id(lbl_artist))) {
+            lv_label_set_text(id(lbl_artist), x.c_str());
+          }
+  - platform: sendspin
+    type: album
+    id: track_album
+  - platform: wifi_info
+    ssid:
+      id: wifi_ssid
+      internal: true
+      on_value:
+        - lvgl.label.update:
+            id: lbl_wifi_ssid
+            text: !lambda 'return x.empty() ? std::string("Connecting...") : x;'
+
+sensor:
+  # Both sensors report milliseconds (NaN = unknown, e.g. nothing playing).
+  # Sendspin sends a full metadata state on every play/pause/seek/track change,
+  # and the progress sensor republishes immediately on each one, then polls once
+  # per second (interpolating) while playing. The shared script coalesces paired
+  # callbacks and only redraws values that actually changed.
+  - platform: sendspin
+    type: track_progress
+    id: track_progress
+    update_interval: 1s
+    on_value:
+      - script.execute: update_progress_ui
+  - platform: sendspin
+    type: track_duration
+    id: track_duration
+    on_value:
+      - script.execute: update_progress_ui
+  # Wi-Fi signal for the top status line: green >= -60 dBm, amber >= -72, red below.
+  - platform: wifi_signal
+    id: wifi_rssi
+    internal: true
+    update_interval: 5s
+    on_value:
+      - lvgl.label.update:
+          id: lbl_wifi_rssi
+          text:
+            format: "%d dBm"
+            args: ['(int) x']
+      - if:
+          condition:
+            lambda: 'return x >= -60;'
+          then:
+            - lvgl.widget.update: {id: lbl_wifi_icon, text_color: 0x2ECC71}
+            - lvgl.widget.update: {id: lbl_wifi_rssi, text_color: 0x2ECC71}
+          else:
+            - if:
+                condition:
+                  lambda: 'return x >= -72;'
+                then:
+                  - lvgl.widget.update: {id: lbl_wifi_icon, text_color: 0xF1C40F}
+                  - lvgl.widget.update: {id: lbl_wifi_rssi, text_color: 0xF1C40F}
+                else:
+                  - lvgl.widget.update: {id: lbl_wifi_icon, text_color: 0xE74C3C}
+                  - lvgl.widget.update: {id: lbl_wifi_rssi, text_color: 0xE74C3C}
+
+# ---------- Physical buttons -> local speaker volume ----------
+# BOOT button: GPIO0, active low -> volume up.
+# PWR button: SYS_OUT line routed to TCA9554 EXIO4, active high while pressed
+# -> volume down (a ~6 s hold still powers the board off via the AXP2101).
+binary_sensor:
+  # 3ms is approximately 144 sample frames at 48kHz. This follows
+  # actual speaker startup, not the earlier Sendspin transport play event.
+  - platform: template
+    id: audio_output_ready
+    internal: true
+    lambda: |-
+      return id(spk).is_running();
+    filters:
+      - delayed_on: 3ms
+    on_press:
+      - switch.turn_on: speaker_amp
+    on_release:
+      - switch.turn_off: speaker_amp
+
+  - platform: gpio
+    id: btn_boot_vol_up
+    internal: true
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: true
+    filters:
+      - delayed_on: 20ms
+    on_press:
+      - media_player.volume_up: media_player_speaker_1
+  - platform: gpio
+    id: btn_pwr_vol_down
+    internal: true
+    pin:
+      pca9554: expander
+      number: 4
+      mode: INPUT
+      inverted: false
+    filters:
+      - delayed_on: 20ms
+    on_press:
+      - media_player.volume_down: media_player_speaker_1
+
+globals:
+  - id: artwork_allowed
+    type: bool
+    restore_value: false
+    initial_value: 'true'
+  - id: artwork_dim_row
+    type: int
+    restore_value: false
+    initial_value: '0'
+  - id: artwork_prepare_started
+    type: uint32_t
+    restore_value: false
+    initial_value: '0'
+  - id: artwork_max_batch_us
+    type: uint32_t
+    restore_value: false
+    initial_value: '0'
+
+script:
+  # Cancel before releasing the frame gate, and invalidate only if visible.
+  # Safe for metadata absence, protocol clear, decode failure and duplicates.
+  - id: clear_artwork_ui
+    then:
+      - script.stop: prepare_artwork
+      - if:
+          condition:
+            lambda: 'return id(art_bg) != nullptr && !lv_obj_is_hidden(id(art_bg));'
+          then:
+            - lvgl.widget.hide: art_bg
+      - sendspin.image.transition_finished: album_slot
+
+  # transition_image holds the Sendspin frame gate until the final acknowledgement.
+  # Only the incoming, non-displayed RGB565 RAM buffer is modified. A clear stops
+  # this script synchronously before Sendspin releases either frame to its decoder.
+  - id: prepare_artwork
+    mode: restart
+    then:
+      - lambda: |-
+          id(artwork_dim_row) = 0;
+          id(artwork_prepare_started) = millis();
+          id(artwork_max_batch_us) = 0;
+      - while:
+          condition:
+            lambda: 'return id(artwork_dim_row) < id(album_art).get_height();'
+          then:
+            - lambda: |-
+                const uint32_t started = micros();
+                const int width = id(album_art).get_width();
+                const int height = id(album_art).get_height();
+                auto *data = const_cast<uint8_t *>(id(album_art).get_data_start());
+                const int end_row = id(artwork_dim_row) + 8 < height
+                    ? id(artwork_dim_row) + 8 : height;
+                // The slot explicitly decodes little-endian opaque RGB565.
+                // Scale each channel to 40% once instead of blending on every redraw.
+                for (int y = id(artwork_dim_row); y < end_row; y++) {
+                  for (int x = 0; x < width; x++) {
+                    const size_t offset = (static_cast<size_t>(y) * width + x) * 2;
+                    const uint16_t pixel = data[offset] | (uint16_t(data[offset + 1]) << 8);
+                    const uint16_t r = ((pixel >> 11) & 31) * 2 / 5;
+                    const uint16_t g = ((pixel >> 5) & 63) * 2 / 5;
+                    const uint16_t b = (pixel & 31) * 2 / 5;
+                    const uint16_t dimmed = (r << 11) | (g << 5) | b;
+                    data[offset] = dimmed & 0xFF;
+                    data[offset + 1] = dimmed >> 8;
+                  }
+                }
+                id(artwork_dim_row) = end_row;
+                const uint32_t elapsed = micros() - started;
+                if (elapsed > id(artwork_max_batch_us)) id(artwork_max_batch_us) = elapsed;
+            # Yield to input, Wi-Fi, audio and LVGL between small row batches.
+            - delay: 1ms
+      - if:
+          condition:
+            lambda: 'return id(artwork_allowed);'
+          then:
+            - lvgl.image.update:
+                id: art_bg
+                src: album_art
+            - if:
+                condition:
+                  lambda: 'return lv_obj_is_hidden(id(art_bg));'
+                then:
+                  - lvgl.widget.show: art_bg
+      # Release the outgoing frame only after no widget points at it.
+      - sendspin.image.transition_finished: album_slot
+      - lambda: |-
+          ESP_LOGD("artwork.render", "Prepared opaque artwork in %u ms; max batch %u us",
+                   static_cast<unsigned>(millis() - id(artwork_prepare_started)),
+                   static_cast<unsigned>(id(artwork_max_batch_us)));
+
+  # Coalesce paired metadata callbacks, then invalidate only changed widgets.
+  # Keep duration and progress in one update so seeks cannot leave stale values.
+  - id: update_progress_ui
+    mode: restart
+    then:
+      - delay: 16ms
+      - lambda: |-
+          if (id(progress_bar) == nullptr || id(lbl_elapsed) == nullptr ||
+              id(lbl_duration) == nullptr) return;
+          const float p = id(track_progress).state;
+          const float d = id(track_duration).state;
+          int progress = 0;
+          if (std::isfinite(p) && std::isfinite(d) && d > 0.0f) {
+            const float ratio = p / d;
+            progress = ratio <= 0.0f ? 0 : (ratio >= 1.0f ? 1000 : (int) (ratio * 1000.0f));
+          }
+          if (lv_bar_get_value(id(progress_bar)) != progress) {
+            lv_bar_set_value(id(progress_bar), progress, LV_ANIM_OFF);
+          }
+          const int elapsed = std::isfinite(p) && p > 0.0f ? (int) (p / 1000.0f) : 0;
+          const int duration = std::isfinite(d) && d > 0.0f ? (int) (d / 1000.0f) : 0;
+          char text[32];
+          snprintf(text, sizeof(text), "%d:%02d", elapsed / 60, elapsed % 60);
+          if (strcmp(lv_label_get_text(id(lbl_elapsed)), text) != 0) {
+            lv_label_set_text(id(lbl_elapsed), text);
+          }
+          snprintf(text, sizeof(text), "%d:%02d", duration / 60, duration % 60);
+          if (strcmp(lv_label_get_text(id(lbl_duration)), text) != 0) {
+            lv_label_set_text(id(lbl_duration), text);
+          }
+
+  # Reflect the current speaker volume on the slider and label.
+  - id: sync_volume_ui
+    then:
+      # Compare widget values rather than invalidating on every state publish.
+      - lambda: |-
+          if (id(vol_slider) == nullptr || id(lbl_volume) == nullptr ||
+              lv_obj_has_state(id(vol_slider), LV_STATE_PRESSED)) return;
+          const float volume = id(media_player_speaker_1).volume;
+          if (!std::isfinite(volume)) return;
+          const int percent = volume <= 0.0f ? 0 : (volume >= 1.0f ? 100 : (int) (volume * 100.0f + 0.5f));
+          if (lv_slider_get_value(id(vol_slider)) != percent) {
+            lv_slider_set_value(id(vol_slider), percent, LV_ANIM_OFF);
+          }
+          char text[24];
+          snprintf(text, sizeof(text), "Volume: %d%%", percent);
+          if (strcmp(lv_label_get_text(id(lbl_volume)), text) != 0) {
+            lv_label_set_text(id(lbl_volume), text);
+          }
+
+# ---------- Track text fonts ----------
+# Built-in LVGL Montserrat omits curly/modifier apostrophes. Retain Montserrat
+# and the existing sizes, adding Latin accents and typographic punctuation.
+font:
+  - file: "gfonts://Montserrat"
+    id: track_font_28
+    size: 28
+    bpp: 4
+    glyphsets:
+      - GF_Latin_Kernel
+      - GF_Latin_Core
+    glyphs: ["\u0027\u2018\u2019\u02BC\u201C\u201D\u2013\u2014"]
+  - file: "gfonts://Montserrat"
+    id: track_font_20
+    size: 20
+    bpp: 4
+    glyphsets:
+      - GF_Latin_Kernel
+      - GF_Latin_Core
+    glyphs: ["\u0027\u2018\u2019\u02BC\u201C\u201D\u2013\u2014"]
+
+# ---------- Album art ----------
+# The Sendspin server scales the artwork to `resize` before sending it, so keep
+# it square. Each slot permanently reserves two RGB565 buffers in PSRAM
+# (448x448x2 bytes ~= 400 kB each).
+image:
+  - platform: sendspin
+    id: album_slot
+    source: album
+    format: JPEG
+    type: RGB565
+    byte_order: little_endian
+    transparency: opaque
+    resize: 448x448
+    current_image:
+      id: album_art
+    # This view gates the next decode until incremental preparation has finished.
+    # It reuses the slot's existing outgoing buffer; no extra frame is allocated.
+    transition_image:
+      id: outgoing_album_art
+    on_image_display:
+      # A late frame must not override metadata explicitly saying "no artwork".
+      - if:
+          condition:
+            lambda: 'return id(artwork_allowed);'
+          then:
+            - lvgl.image.update:
+                id: art_bg
+                src: outgoing_album_art
+            - script.execute: prepare_artwork
+          else:
+            - script.execute: clear_artwork_ui
+    # Track has no artwork (or the stream ended): LVGL would otherwise keep
+    # drawing the previous album, so hide the widget.
+    on_image_clear:
+      - logger.log: "Artwork clear received; blanking"
+      - script.execute: clear_artwork_ui
+    on_image_error:
+      - logger.log: "Failed to decode album art"
+      - script.execute: clear_artwork_ui
+
+# ---------- UI (true-black AMOLED theme) ----------
+lvgl:
+  bg_color: 0x000000
+  text_color: 0xFFFFFF
+  pages:
+    - id: main_page
+      scrollable: false
+      widgets:
+        # Album art background. Declared first so it renders beneath
+        # everything else. Pixels are pre-dimmed, avoiding repeated alpha blending
+        # and LVGL's full-object opacity layer while foreground text scrolls.
+        - obj:
+            id: art_frame
+            align: CENTER
+            width: 100%
+            height: 100%
+            bg_opa: TRANSP
+            border_width: 0
+            pad_all: 0
+            radius: 0
+            scrollable: false
+            clickable: false
+            widgets:
+              - image:
+                  id: art_bg
+                  src: album_art
+                  align: CENTER
+                  hidden: true
+                  opa: COVER
+        # Wi-Fi status line, centred so it stays clear of the rounded top corners:
+        # connection dot, signal icon, network name, signal level.
+        - obj:
+            id: wifi_bar
+            align: TOP_MID
+            y: 2
+            width: 300
+            height: 18
+            bg_opa: TRANSP
+            border_width: 0
+            pad_all: 0
+            scrollbar_mode: "OFF"
+            layout:
+              type: flex
+              flex_flow: ROW
+              flex_align_main: CENTER
+              flex_align_cross: CENTER
+              flex_align_track: CENTER
+            widgets:
+              - obj:
+                  id: dot_wifi
+                  width: 10
+                  height: 10
+                  radius: 5
+                  border_width: 0
+                  bg_color: 0xE74C3C
+              - label:
+                  id: lbl_wifi_icon
+                  text: "\uF1EB"   # wifi symbol
+                  pad_left: 6
+                  text_font: montserrat_14
+                  text_color: 0x888888
+              - label:
+                  id: lbl_wifi_ssid
+                  text: "Connecting..."
+                  pad_left: 6
+                  max_width: 150
+                  long_mode: DOT
+                  text_font: montserrat_14
+                  text_color: 0xBBBBBB
+              - label:
+                  id: lbl_wifi_rssi
+                  text: "-- dBm"
+                  pad_left: 6
+                  text_font: montserrat_14
+                  text_color: 0x888888
+        # Track title: large, bold white, centred, scrolls if too long.
+        - label:
+            id: lbl_title
+            text: "-"
+            align: TOP_MID
+            y: 28
+            width: 330
+            long_mode: SCROLL_CIRCULAR
+            text_align: CENTER
+            text_font: track_font_28
+            text_color: 0xFFFFFF
+        # Artist: slightly smaller, bright accent colour for contrast on black.
+        - label:
+            id: lbl_artist
+            text: "-"
+            align: TOP_MID
+            y: 74
+            width: 330
+            long_mode: SCROLL_CIRCULAR
+            text_align: CENTER
+            text_font: track_font_20
+            text_color: 0x4FC3F7
+        # Previous track button, left of play/pause.
+        - button:
+            id: btn_prev
+            align: CENTER
+            x: -105
+            y: 20
+            width: 84
+            height: 84
+            radius: 42
+            scrollable: false
+            bg_color: 0x333333
+            border_width: 0
+            shadow_width: 0
+            widgets:
+              - label:
+                  align: CENTER
+                  text: "\uF048"   # previous symbol
+                  text_font: montserrat_28
+                  text_color: 0xFFFFFF
+            # Act on touch-down: a small finger movement must not cancel a skip.
+            on_press:
+              - logger.log: "Transport: previous track pressed"
+              - media_player.previous: media_player_sendspin_1
+        # Next track button, right of play/pause.
+        - button:
+            id: btn_next
+            align: CENTER
+            x: 105
+            y: 20
+            width: 84
+            height: 84
+            radius: 42
+            scrollable: false
+            bg_color: 0x333333
+            border_width: 0
+            shadow_width: 0
+            widgets:
+              - label:
+                  align: CENTER
+                  text: "\uF051"   # next symbol
+                  text_font: montserrat_28
+                  text_color: 0xFFFFFF
+            on_press:
+              - logger.log: "Transport: next track pressed"
+              - media_player.next: media_player_sendspin_1
+        # Round play/pause button (square size + full radius = circle).
+        - button:
+            id: btn_play_pause
+            align: CENTER
+            y: 20
+            width: 84
+            height: 84
+            radius: 42
+            bg_color: 0x1E88E5
+            border_width: 0
+            shadow_width: 0
+            widgets:
+              - label:
+                  id: lbl_play_pause
+                  align: CENTER
+                  text: "\uF04B"   # play symbol
+                  text_font: montserrat_28
+                  text_color: 0xFFFFFF
+            on_click:
+              - media_player.toggle: media_player_sendspin_1
+        # Track progress bar: sits between the transport buttons (bottom edge
+        # ~y=286) and the volume controls (top edge ~y=357). Display-only,
+        # range 0-1000 (permille of the track elapsed).
+        - bar:
+            id: progress_bar
+            align: CENTER
+            y: 92
+            width: 260
+            height: 8
+            min_value: 0
+            max_value: 1000
+            value: 0
+            bg_color: 0x333333
+            radius: 4
+            border_width: 0
+            shadow_width: 0
+            indicator:
+              bg_color: 0x4FC3F7
+              radius: 4
+        # Elapsed time under the left end of the bar.
+        - label:
+            id: lbl_elapsed
+            text: "0:00"
+            align: CENTER
+            x: -110
+            y: 116
+            text_font: montserrat_14
+            text_color: 0xBBBBBB
+        # Total track length under the right end of the bar.
+        - label:
+            id: lbl_duration
+            text: "0:00"
+            align: CENTER
+            x: 110
+            y: 116
+            text_font: montserrat_14
+            text_color: 0xBBBBBB
+        # Local speaker volume (this device only, not the Sendspin group).
+        # Also controlled by the BOOT (up) and PWR (down) physical buttons.
+        - label:
+            id: lbl_volume
+            text: "Volume"
+            align: BOTTOM_MID
+            y: -75
+        - slider:
+            id: vol_slider
+            align: BOTTOM_MID
+            y: -40
+            width: 260
+            height: 16
+            ext_click_area: 20
+            min_value: 0
+            max_value: 100
+            value: 50
+            # Drag only updates the label; the volume is applied once on
+            # release, because speaker_source persists volume to flash
+            # and a drag would otherwise write on every step.
+            on_value:
+              - lvgl.label.update:
+                  id: lbl_volume
+                  text:
+                    format: "Volume: %d%%"
+                    args: ['(int) x']
+            on_release:
+              - media_player.volume_set:
+                  id: media_player_speaker_1
+                  volume: !lambda 'return lv_slider_get_value(id(vol_slider)) / 100.0f;'
+              - script.execute: sync_volume_ui
+

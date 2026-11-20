@@ -1,0 +1,237 @@
+{"received":"2026-11-20T07:44:28.766Z","message":{"server_version":"1.28.1","esphome_version":"2026.11.0","port":6052,"ha_addon":false,"friendly_name":"prl-docker","ha_ingress":false,"requires_auth":false,"desktop_version":"","desktop_update_capable":false,"in_docker":true}}
+{"received":"2026-11-20T07:44:28.832Z","message":{"message_id":"logs","event":"output","data":"\\033[32mINFO ESPHome 2026.11.0\\033[0m"}}
+{"received":"2026-11-20T07:44:28.833Z","message":{"message_id":"logs","event":"output","data":"\\033[32mINFO Loaded validated config cache for sendspin-project-v2.yaml, skipping validation.\\033[0m"}}
+{"received":"2026-11-20T07:44:28.906Z","message":{"message_id":"logs","event":"output","data":"\\033[32mINFO Starting log output from 192.168.60.103 using esphome API\\033[0m"}}
+{"received":"2026-11-20T07:44:28.906Z","message":{"message_id":"logs","event":"output","data":"\\033[32mINFO Successfully resolved sendspin-project-v2 @ 192.168.60.103 in 0.000s\\033[0m"}}
+{"received":"2026-11-20T07:44:28.911Z","message":{"message_id":"logs","event":"output","data":"\\033[32mINFO Successfully connected to sendspin-project-v2 @ 192.168.60.103 in 0.005s\\033[0m"}}
+{"received":"2026-11-20T07:44:28.958Z","message":{"message_id":"logs","event":"output","data":"\\033[32mINFO Successful handshake with sendspin-project-v2 @ 192.168.60.103 in 0.047s\\033[0m"}}
+{"received":"2026-11-20T07:44:28.994Z","message":{"message_id":"logs","event":"output","data":"[20:44:28.994]\\033[0;32m[I][app:163]: ESPHome version 2026.11.0 compiled on 2026-11-20 20:39:53 +1300\\033[0m"}}
+{"received":"2026-11-20T07:44:28.994Z","message":{"message_id":"logs","event":"output","data":"[20:44:28.994]\\033[0;32m[I][app:170]: ESP32 Chip: ESP32-S3 rev0.2, 2 core(s)\\033[0m"}}
+{"received":"2026-11-20T07:44:28.995Z","message":{"message_id":"logs","event":"output","data":"[20:44:28.994]\\033[0;33m[W][app:188]: Set flash_chip: generic under esp32 > framework > advanced to save IRAM\\033[0m"}}
+{"received":"2026-11-20T07:44:28.995Z","message":{"message_id":"logs","event":"output","data":"[20:44:28.994]\\033[0;35m[C][logger:329]: Logger:\\033[0m"}}
+{"received":"2026-11-20T07:44:28.995Z","message":{"message_id":"logs","event":"output","data":"[20:44:28.994]\\033[0;35m[C][logger:329]:   Max Level: DEBUG\\033[0m"}}
+{"received":"2026-11-20T07:44:28.995Z","message":{"message_id":"logs","event":"output","data":"[20:44:28.994]\\033[0;35m[C][logger:329]:   Initial Level: DEBUG\\033[0m"}}
+{"received":"2026-11-20T07:44:29.010Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.009]\\033[0;35m[C][logger:336]:   Log Baud Rate: 115200\\033[0m"}}
+{"received":"2026-11-20T07:44:29.010Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.009]\\033[0;35m[C][logger:336]:   Hardware UART: USB_SERIAL_JTAG\\033[0m"}}
+{"received":"2026-11-20T07:44:29.010Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.009]\\033[0;35m[C][logger:345]:   Task Log Buffer Size: 768 bytes\\033[0m"}}
+{"received":"2026-11-20T07:44:29.043Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.042]\\033[0;35m[C][i2c:174]: I2C Bus:\\033[0m"}}
+{"received":"2026-11-20T07:44:29.051Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.051]\\033[0;35m[C][i2c:175]:   SDA Pin: GPIO15\\033[0m"}}
+{"received":"2026-11-20T07:44:29.052Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.051]\\033[0;35m[C][i2c:175]:   SCL Pin: GPIO14\\033[0m"}}
+{"received":"2026-11-20T07:44:29.052Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.051]\\033[0;35m[C][i2c:175]:   Frequency: 50000 Hz\\033[0m"}}
+{"received":"2026-11-20T07:44:29.052Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.051]\\033[0;35m[C][i2c:191]:   Recovery: bus successfully recovered\\033[0m"}}
+{"received":"2026-11-20T07:44:29.052Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.051]\\033[0;35m[C][i2c:027]: Results from bus scan:\\033[0m"}}
+{"received":"2026-11-20T07:44:29.059Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.058]\\033[0;35m[C][i2c:034]: Found device at address 0x15\\033[0m"}}
+{"received":"2026-11-20T07:44:29.066Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.066]\\033[0;35m[C][i2c:034]: Found device at address 0x18\\033[0m"}}
+{"received":"2026-11-20T07:44:29.066Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.066]\\033[0;35m[C][i2c:034]: Found device at address 0x20\\033[0m"}}
+{"received":"2026-11-20T07:44:29.066Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.066]\\033[0;35m[C][i2c:034]: Found device at address 0x34\\033[0m"}}
+{"received":"2026-11-20T07:44:29.074Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.073]\\033[0;35m[C][i2c:034]: Found device at address 0x51\\033[0m"}}
+{"received":"2026-11-20T07:44:29.085Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.084]\\033[0;35m[C][i2c:034]: Found device at address 0x6B\\033[0m"}}
+{"received":"2026-11-20T07:44:29.102Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.102]\\033[0;35m[C][spi:076]: SPI bus:\\033[0m"}}
+{"received":"2026-11-20T07:44:29.117Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.117]\\033[0;35m[C][spi:137]:   CLK Pin: GPIO11\\033[0m"}}
+{"received":"2026-11-20T07:44:29.118Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.117]\\033[0;35m[C][spi:137]:   SDI Pin: \\033[0m"}}
+{"received":"2026-11-20T07:44:29.118Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.117]\\033[0;35m[C][spi:137]:   SDO Pin: \\033[0m"}}
+{"received":"2026-11-20T07:44:29.122Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.122]\\033[0;35m[C][spi:081]:   Data pin 0: GPIO4\\033[0m"}}
+{"received":"2026-11-20T07:44:29.134Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.133]\\033[0;35m[C][spi:081]:   Data pin 1: GPIO5\\033[0m"}}
+{"received":"2026-11-20T07:44:29.134Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.133]\\033[0;35m[C][spi:081]:   Data pin 2: GPIO6\\033[0m"}}
+{"received":"2026-11-20T07:44:29.134Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.133]\\033[0;35m[C][spi:081]:   Data pin 3: GPIO7\\033[0m"}}
+{"received":"2026-11-20T07:44:29.140Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.140]\\033[0;35m[C][spi:087]:   Using HW SPI: SPI2_HOST\\033[0m"}}
+{"received":"2026-11-20T07:44:29.185Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.184]\\033[0;35m[C][pca9554:059]: PCA9554:\\033[0m"}}
+{"received":"2026-11-20T07:44:29.185Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.184]\\033[0;35m[C][pca9554:059]:   I/O Pins: 8\\033[0m"}}
+{"received":"2026-11-20T07:44:29.185Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.184]\\033[0;35m[C][pca9554:067]:   Address: 0x20\\033[0m"}}
+{"received":"2026-11-20T07:44:29.186Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.184]\\033[0;35m[C][switch.gpio:105]: GPIO Switch 'panel_power'\\033[0m"}}
+{"received":"2026-11-20T07:44:29.186Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.184]\\033[0;35m[C][switch.gpio:105]:   Restore Mode: always ON\\033[0m"}}
+{"received":"2026-11-20T07:44:29.193Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.192]\\033[0;35m[C][switch.gpio:137]:   Pin: 7 via PCA9554\\033[0m"}}
+{"received":"2026-11-20T07:44:29.209Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.208]\\033[0;35m[C][switch.gpio:105]: GPIO Switch 'speaker_amp'\\033[0m"}}
+{"received":"2026-11-20T07:44:29.209Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.208]\\033[0;35m[C][switch.gpio:105]:   Restore Mode: always OFF\\033[0m"}}
+{"received":"2026-11-20T07:44:29.219Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.218]\\033[0;35m[C][switch.gpio:137]:   Pin: GPIO46\\033[0m"}}
+{"received":"2026-11-20T07:44:29.234Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.233]\\033[0;35m[C][template.binary_sensor:191]: Template Binary Sensor 'audio_output_ready'\\033[0m"}}
+{"received":"2026-11-20T07:44:29.256Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.255]\\033[0;35m[C][gpio.binary_sensor:191]: GPIO Binary Sensor 'btn_boot_vol_up'\\033[0m"}}
+{"received":"2026-11-20T07:44:29.262Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.261]\\033[0;35m[C][gpio.binary_sensor:137]:   Pin: GPIO0\\033[0m"}}
+{"received":"2026-11-20T07:44:29.270Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.269]\\033[0;35m[C][gpio.binary_sensor:068]:   Mode: interrupt\\033[0m"}}
+{"received":"2026-11-20T07:44:29.270Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.269]\\033[0;35m[C][gpio.binary_sensor:070]:   Interrupt Type: ANY_EDGE\\033[0m"}}
+{"received":"2026-11-20T07:44:29.292Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.291]\\033[0;35m[C][gpio.binary_sensor:191]: GPIO Binary Sensor 'btn_pwr_vol_down'\\033[0m"}}
+{"received":"2026-11-20T07:44:29.313Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.312]\\033[0;35m[C][gpio.binary_sensor:137]:   Pin: 4 via PCA9554\\033[0m"}}
+{"received":"2026-11-20T07:44:29.313Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.312]\\033[0;35m[C][gpio.binary_sensor:068]:   Mode: polling\\033[0m"}}
+{"received":"2026-11-20T07:44:29.353Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.351]\\033[0;35m[C][psram:015]: PSRAM:\\033[0m"}}
+{"received":"2026-11-20T07:44:29.358Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.357]\\033[0;35m[C][psram:018]:   Available: YES\\033[0m"}}
+{"received":"2026-11-20T07:44:29.358Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.357]\\033[0;35m[C][psram:020]:   Size: 8192 KB\\033[0m"}}
+{"received":"2026-11-20T07:44:29.375Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.373]\\033[0;35m[C][display.mipi_spi:010]: MIPI_SPI Display\\033[0m"}}
+{"received":"2026-11-20T07:44:29.375Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.373]\\033[0;35m[C][display.mipi_spi:010]:   Model: CO5300\\033[0m"}}
+{"received":"2026-11-20T07:44:29.375Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.373]\\033[0;35m[C][display.mipi_spi:010]:   Width: 368\\033[0m"}}
+{"received":"2026-11-20T07:44:29.375Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.373]\\033[0;35m[C][display.mipi_spi:010]:   Height: 448\\033[0m"}}
+{"received":"2026-11-20T07:44:29.375Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.373]\\033[0;35m[C][display.mipi_spi:010]:   Swap X/Y: NO\\033[0m"}}
+{"received":"2026-11-20T07:44:29.375Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.373]\\033[0;35m[C][display.mipi_spi:010]:   Mirror X: NO\\033[0m"}}
+{"received":"2026-11-20T07:44:29.375Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.373]\\033[0;35m[C][display.mipi_spi:010]:   Mirror Y: NO\\033[0m"}}
+{"received":"2026-11-20T07:44:29.375Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.373]\\033[0;35m[C][display.mipi_spi:010]:   Hardware rotation: NO\\033[0m"}}
+{"received":"2026-11-20T07:44:29.375Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.373]\\033[0;35m[C][display.mipi_spi:010]:   Invert colors: NO\\033[0m"}}
+{"received":"2026-11-20T07:44:29.375Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.373]\\033[0;35m[C][display.mipi_spi:010]:   Color order: RGB\\033[0m"}}
+{"received":"2026-11-20T07:44:29.375Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.373]\\033[0;35m[C][display.mipi_spi:010]:   Display pixels: 16 bits\\033[0m"}}
+{"received":"2026-11-20T07:44:29.375Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.373]\\033[0;35m[C][display.mipi_spi:010]:   Endianness: Big\\033[0m"}}
+{"received":"2026-11-20T07:44:29.375Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.373]\\033[0;35m[C][display.mipi_spi:010]:   SPI Mode: 0\\033[0m"}}
+{"received":"2026-11-20T07:44:29.375Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.373]\\033[0;35m[C][display.mipi_spi:010]:   SPI Data rate: 40MHz\\033[0m"}}
+{"received":"2026-11-20T07:44:29.375Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.373]\\033[0;35m[C][display.mipi_spi:010]:   SPI Bus width: 4\\033[0m"}}
+{"received":"2026-11-20T07:44:29.379Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.378]\\033[0;35m[C][display.mipi_spi:137]:   CS Pin: GPIO12\\033[0m"}}
+{"received":"2026-11-20T07:44:29.395Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.393]\\033[0;35m[C][display.mipi_spi:137]:   Reset Pin: 0 via PCA9554\\033[0m"}}
+{"received":"2026-11-20T07:44:29.395Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.393]\\033[0;35m[C][display.mipi_spi:035]:   Offset width: 16\\033[0m"}}
+{"received":"2026-11-20T07:44:29.409Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.408]\\033[0;35m[C][cst816.touchscreen:091]: CST816 Touchscreen:\\033[0m"}}
+{"received":"2026-11-20T07:44:29.409Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.408]\\033[0;35m[C][cst816.touchscreen:091]:   X Raw Min: 0, X Raw Max: 368\\033[0m"}}
+{"received":"2026-11-20T07:44:29.410Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.408]\\033[0;35m[C][cst816.touchscreen:091]:   Y Raw Min: 0, Y Raw Max: 448\\033[0m"}}
+{"received":"2026-11-20T07:44:29.412Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.410]\\033[0;35m[C][cst816.touchscreen:096]:   Address: 0x15\\033[0m"}}
+{"received":"2026-11-20T07:44:29.420Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.419]\\033[0;35m[C][cst816.touchscreen:137]:   Interrupt Pin: GPIO21\\033[0m"}}
+{"received":"2026-11-20T07:44:29.426Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.425]\\033[0;35m[C][cst816.touchscreen:137]:   Reset Pin: 2 via PCA9554\\033[0m"}}
+{"received":"2026-11-20T07:44:29.432Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.431]\\033[0;35m[C][cst816.touchscreen:126]:   Chip type: CST820\\033[0m"}}
+{"received":"2026-11-20T07:44:29.468Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.466]\\033[0;35m[C][es8311:057]: ES8311 Audio Codec:\\033[0m"}}
+{"received":"2026-11-20T07:44:29.468Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.466]\\033[0;35m[C][es8311:057]:   Use MCLK: YES\\033[0m"}}
+{"received":"2026-11-20T07:44:29.468Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.466]\\033[0;35m[C][es8311:057]:   Use Microphone: NO\\033[0m"}}
+{"received":"2026-11-20T07:44:29.468Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.466]\\033[0;35m[C][es8311:057]:   DAC Bits per Sample: 16\\033[0m"}}
+{"received":"2026-11-20T07:44:29.468Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.466]\\033[0;35m[C][es8311:057]:   Sample Rate: 48000\\033[0m"}}
+{"received":"2026-11-20T07:44:29.497Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.495]\\033[0;35m[C][wifi_info:191]: SSID 'wifi_ssid'\\033[0m"}}
+{"received":"2026-11-20T07:44:29.514Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.513]\\033[0;35m[C][i2s_audio.speaker:067]: Speaker:\\033[0m"}}
+{"received":"2026-11-20T07:44:29.514Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.513]\\033[0;35m[C][i2s_audio.speaker:067]:   Pin: 8\\033[0m"}}
+{"received":"2026-11-20T07:44:29.514Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.513]\\033[0;35m[C][i2s_audio.speaker:067]:   Buffer duration: 500\\033[0m"}}
+{"received":"2026-11-20T07:44:29.514Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.513]\\033[0;35m[C][i2s_audio.speaker:067]:   Keep alive: NO\\033[0m"}}
+{"received":"2026-11-20T07:44:29.521Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.520]\\033[0;35m[C][i2s_audio.speaker.std:072]:   Communication format: std\\033[0m"}}
+{"received":"2026-11-20T07:44:29.521Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.521]\\033[0;35m[C][i2s_audio.speaker.std:076]:   Slot bit width: 16\\033[0m"}}
+{"received":"2026-11-20T07:44:29.544Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.543]\\033[0;35m[C][speaker_source_media_player:053]: Speaker Source Media Player:\\033[0m"}}
+{"received":"2026-11-20T07:44:29.544Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.543]\\033[0;35m[C][speaker_source_media_player:053]:   Volume Increment: 0.05\\033[0m"}}
+{"received":"2026-11-20T07:44:29.544Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.543]\\033[0;35m[C][speaker_source_media_player:053]:   Volume Min: 0.00\\033[0m"}}
+{"received":"2026-11-20T07:44:29.544Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.543]\\033[0;35m[C][speaker_source_media_player:053]:   Volume Max: 1.00\\033[0m"}}
+{"received":"2026-11-20T07:44:29.567Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.565]\\033[0;35m[C][lvgl:166]: LVGL:\\033[0m"}}
+{"received":"2026-11-20T07:44:29.567Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.565]\\033[0;35m[C][lvgl:166]:   Display width/height: 368 x 448\\033[0m"}}
+{"received":"2026-11-20T07:44:29.567Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.565]\\033[0;35m[C][lvgl:166]:   Buffer size: 100%\\033[0m"}}
+{"received":"2026-11-20T07:44:29.567Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.565]\\033[0;35m[C][lvgl:166]:   Rotation: 0\\033[0m"}}
+{"received":"2026-11-20T07:44:29.567Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.565]\\033[0;35m[C][lvgl:166]:   Draw rounding: 2\\033[0m"}}
+{"received":"2026-11-20T07:44:29.588Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.587]\\033[0;35m[C][network:050]: Network:\\033[0m"}}
+{"received":"2026-11-20T07:44:29.589Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.587]\\033[0;35m[C][network:050]:   TCP send buffer: 65534 bytes\\033[0m"}}
+{"received":"2026-11-20T07:44:29.612Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.610]\\033[0;35m[C][captive_portal:134]: Captive Portal:\\033[0m"}}
+{"received":"2026-11-20T07:44:29.634Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.632]\\033[0;35m[C][wifi:1771]: WiFi:\\033[0m"}}
+{"received":"2026-11-20T07:44:29.634Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.632]\\033[0;35m[C][wifi:1771]:   Local MAC: 28:84:85:3B:7D:18\\033[0m"}}
+{"received":"2026-11-20T07:44:29.634Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.632]\\033[0;35m[C][wifi:1771]:   Connected: YES\\033[0m"}}
+{"received":"2026-11-20T07:44:29.639Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.638]\\033[0;35m[C][wifi:1461]:   IP Address: 192.168.60.103\\033[0m"}}
+{"received":"2026-11-20T07:44:29.646Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.645]\\033[0;35m[C][wifi:1472]:   SSID: \\033[8m'GNZ'\\033[28m\\033[0m"}}
+{"received":"2026-11-20T07:44:29.646Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.645]\\033[0;35m[C][wifi:1472]:   BSSID: \\033[8mD0:21:F9:B6:A4:21\\033[28m\\033[0m"}}
+{"received":"2026-11-20T07:44:29.646Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.645]\\033[0;35m[C][wifi:1472]:   Hostname: 'sendspin-project-v2'\\033[0m"}}
+{"received":"2026-11-20T07:44:29.646Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.645]\\033[0;35m[C][wifi:1472]:   Signal strength: -27 dB \\033[0;32m▂▄▆█\\033[0m"}}
+{"received":"2026-11-20T07:44:29.646Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.645]\\033[0;35m[C][wifi:1472]:   Channel: 1\\033[0m"}}
+{"received":"2026-11-20T07:44:29.647Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.645]\\033[0;35m[C][wifi:1472]:   Subnet: 255.255.255.0\\033[0m"}}
+{"received":"2026-11-20T07:44:29.647Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.645]\\033[0;35m[C][wifi:1472]:   Gateway: 192.168.60.1\\033[0m"}}
+{"received":"2026-11-20T07:44:29.647Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.645]\\033[0;35m[C][wifi:1472]:   DNS1: 192.168.60.254\\033[0m"}}
+{"received":"2026-11-20T07:44:29.647Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.645]\\033[0;35m[C][wifi:1472]:   DNS2: 192.168.60.253\\033[0m"}}
+{"received":"2026-11-20T07:44:29.665Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.664]\\033[0;35m[C][esphome.ota:132]: Over-The-Air updates:\\033[0m"}}
+{"received":"2026-11-20T07:44:29.665Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.664]\\033[0;35m[C][esphome.ota:132]:   Address: sendspin-project-v2.local:3232\\033[0m"}}
+{"received":"2026-11-20T07:44:29.665Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.664]\\033[0;35m[C][esphome.ota:132]:   Version: 2\\033[0m"}}
+{"received":"2026-11-20T07:44:29.665Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.664]\\033[0;35m[C][esphome.ota:132]:   Encryption: offered, plaintext accepted\\033[0m"}}
+{"received":"2026-11-20T07:44:29.671Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.670]\\033[0;35m[C][esphome.ota:156]:   Password configured\\033[0m"}}
+{"received":"2026-11-20T07:44:29.694Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.693]\\033[0;35m[C][safe_mode:058]: Safe Mode:\\033[0m"}}
+{"received":"2026-11-20T07:44:29.694Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.693]\\033[0;35m[C][safe_mode:058]:   Successful after: 60s\\033[0m"}}
+{"received":"2026-11-20T07:44:29.694Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.693]\\033[0;35m[C][safe_mode:058]:   Invoke after: 10 attempts\\033[0m"}}
+{"received":"2026-11-20T07:44:29.694Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.693]\\033[0;35m[C][safe_mode:058]:   Duration: 300s\\033[0m"}}
+{"received":"2026-11-20T07:44:29.702Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.701]\\033[0;35m[C][safe_mode:075]:   Bootloader rollback: supported\\033[0m"}}
+{"received":"2026-11-20T07:44:29.721Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.720]\\033[0;35m[C][web_server.ota:245]: Web Server OTA\\033[0m"}}
+{"received":"2026-11-20T07:44:29.742Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.741]\\033[0;35m[C][api:374]: Server:\\033[0m"}}
+{"received":"2026-11-20T07:44:29.742Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.741]\\033[0;35m[C][api:374]:   Address: sendspin-project-v2.local:6053\\033[0m"}}
+{"received":"2026-11-20T07:44:29.742Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.741]\\033[0;35m[C][api:374]:   Listen backlog: 4\\033[0m"}}
+{"received":"2026-11-20T07:44:29.742Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.741]\\033[0;35m[C][api:374]:   Max connections: 5\\033[0m"}}
+{"received":"2026-11-20T07:44:29.748Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.747]\\033[0;35m[C][api:381]:   Noise encryption: YES\\033[0m"}}
+{"received":"2026-11-20T07:44:29.771Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.770]\\033[0;35m[C][sendspin.hub:223]: Sendspin Hub:\\033[0m"}}
+{"received":"2026-11-20T07:44:29.772Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.770]\\033[0;35m[C][sendspin.hub:223]:   Client ID: VT3WzlF2YsT1ctM0lG64yQwlOCv3ztrV9n1IhQxZlUY\\033[0m"}}
+{"received":"2026-11-20T07:44:29.772Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.770]\\033[0;35m[C][sendspin.hub:223]:   MAC address: 28:84:85:3b:7d:18\\033[0m"}}
+{"received":"2026-11-20T07:44:29.772Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.770]\\033[0;35m[C][sendspin.hub:223]:   Manufacturer: ESPHome\\033[0m"}}
+{"received":"2026-11-20T07:44:29.772Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.770]\\033[0;35m[C][sendspin.hub:223]:   Model: sendspin-project-v2\\033[0m"}}
+{"received":"2026-11-20T07:44:29.772Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.770]\\033[0;35m[C][sendspin.hub:223]:   Firmware version: 2026.11.0\\033[0m"}}
+{"received":"2026-11-20T07:44:29.772Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.770]\\033[0;35m[C][sendspin.hub:223]:   Task stack in PSRAM: YES\\033[0m"}}
+{"received":"2026-11-20T07:44:29.772Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.770]\\033[0;35m[C][sendspin.hub:223]:   Unpaired access: YES\\033[0m"}}
+{"received":"2026-11-20T07:44:29.772Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.770]\\033[0;35m[C][sendspin.hub:223]:   Pairing code method: none\\033[0m"}}
+{"received":"2026-11-20T07:44:29.772Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.772]\\033[0;35m[C][sendspin.hub:246]:   Artwork slot 0: ALBUM as JPEG, 448x448, display offset 0 ms\\033[0m"}}
+{"received":"2026-11-20T07:44:29.803Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.801]\\033[0;35m[C][wifi_signal.sensor:017]: WiFi Signal 'wifi_rssi'\\033[0m"}}
+{"received":"2026-11-20T07:44:29.803Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.801]\\033[0;35m[C][wifi_signal.sensor:017]:   State Class: 'measurement'\\033[0m"}}
+{"received":"2026-11-20T07:44:29.803Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.801]\\033[0;35m[C][wifi_signal.sensor:017]:   Unit of Measurement: 'dBm'\\033[0m"}}
+{"received":"2026-11-20T07:44:29.803Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.801]\\033[0;35m[C][wifi_signal.sensor:017]:   Accuracy Decimals: 0\\033[0m"}}
+{"received":"2026-11-20T07:44:29.810Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.809]\\033[0;35m[C][wifi_signal.sensor:207]:   Device Class: 'signal_strength'\\033[0m"}}
+{"received":"2026-11-20T07:44:29.822Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.820]\\033[0;35m[C][sendspin.media_source:031]: Sendspin Media Source: static_delay_adjustable=NO\\033[0m"}}
+{"received":"2026-11-20T07:44:29.844Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.842]\\033[0;35m[C][sendspin.media_player:177]: Sendspin Media Player: volume_increment=0.05\\033[0m"}}
+{"received":"2026-11-20T07:44:29.866Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.865]\\033[0;35m[C][sendspin.text_sensor:191]: Sendspin 'track_title'\\033[0m"}}
+{"received":"2026-11-20T07:44:29.877Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.875]\\033[0;35m[C][sendspin.text_sensor:191]: Sendspin 'track_artist'\\033[0m"}}
+{"received":"2026-11-20T07:44:29.887Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.886]\\033[0;35m[C][sendspin.text_sensor:191]: Sendspin 'track_album'\\033[0m"}}
+{"received":"2026-11-20T07:44:29.908Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.907]\\033[0;35m[C][sendspin.sensor:017]: Track Progress 'track_progress'\\033[0m"}}
+{"received":"2026-11-20T07:44:29.908Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.907]\\033[0;35m[C][sendspin.sensor:017]:   State Class: 'measurement'\\033[0m"}}
+{"received":"2026-11-20T07:44:29.908Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.907]\\033[0;35m[C][sendspin.sensor:017]:   Unit of Measurement: 'ms'\\033[0m"}}
+{"received":"2026-11-20T07:44:29.909Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.907]\\033[0;35m[C][sendspin.sensor:017]:   Accuracy Decimals: 0\\033[0m"}}
+{"received":"2026-11-20T07:44:29.916Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.915]\\033[0;35m[C][sendspin.sensor:367]:   Update Interval: 1.000s\\033[0m"}}
+{"received":"2026-11-20T07:44:29.937Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.935]\\033[0;35m[C][sendspin.sensor:017]: Track Duration 'track_duration'\\033[0m"}}
+{"received":"2026-11-20T07:44:29.937Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.935]\\033[0;35m[C][sendspin.sensor:017]:   State Class: 'measurement'\\033[0m"}}
+{"received":"2026-11-20T07:44:29.938Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.935]\\033[0;35m[C][sendspin.sensor:017]:   Unit of Measurement: 'ms'\\033[0m"}}
+{"received":"2026-11-20T07:44:29.938Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.935]\\033[0;35m[C][sendspin.sensor:017]:   Accuracy Decimals: 0\\033[0m"}}
+{"received":"2026-11-20T07:44:29.957Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.955]\\033[0;35m[C][sendspin.image:235]: Artwork slot 0:\\033[0m"}}
+{"received":"2026-11-20T07:44:29.957Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.955]\\033[0;35m[C][sendspin.image:235]:   Dimensions: 448x448\\033[0m"}}
+{"received":"2026-11-20T07:44:29.957Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.955]\\033[0;35m[C][sendspin.image:235]:   Frame buffers: 2 x 401408 bytes\\033[0m"}}
+{"received":"2026-11-20T07:44:29.957Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.955]\\033[0;35m[C][sendspin.image:235]:   Transition image: NO\\033[0m"}}
+{"received":"2026-11-20T07:44:29.980Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.978]\\033[0;35m[C][mdns:336]: mDNS:\\033[0m"}}
+{"received":"2026-11-20T07:44:29.980Z","message":{"message_id":"logs","event":"output","data":"[20:44:29.978]\\033[0;35m[C][mdns:336]:   Hostname: sendspin-project-v2\\033[0m"}}
+{"received":"2026-11-20T07:44:33.110Z","message":{"message_id":"logs","event":"output","data":"[20:44:33.110]\\033[0;36m[D][esp-idf:000]\\033[1;31m[SsProto]\\033[0;36m: D (155655) sendspin.client: Stream ended - player:1 artwork:0 visualizer:0\\033[0m"}}
+{"received":"2026-11-20T07:44:33.134Z","message":{"message_id":"logs","event":"output","data":"[20:44:33.133]\\033[0;36m[D][speaker_source_media_player:304]: State changed to IDLE\\033[0m"}}
+{"received":"2026-11-20T07:44:33.207Z","message":{"message_id":"logs","event":"output","data":"[20:44:33.207]\\033[0;36m[D][esp-idf:000]\\033[1;31m[SsProto]\\033[0;36m: D (155750) sendspin.client: Stream Started\\033[0m"}}
+{"received":"2026-11-20T07:44:33.239Z","message":{"message_id":"logs","event":"output","data":"[20:44:33.239]\\033[0;96m[S][media_player]: 'Sendspin Speaker' >> IDLE\\033[0m"}}
+{"received":"2026-11-20T07:44:33.239Z","message":{"message_id":"logs","event":"output","data":"[20:44:33.239]\\033[0;96m[S][media_player]:   Volume: 64%\\033[0m"}}
+{"received":"2026-11-20T07:44:33.262Z","message":{"message_id":"logs","event":"output","data":"[20:44:33.261]\\033[0;36m[D][esp-idf:000]\\033[1;31m[SsSync]\\033[0;36m: I (155780) sendspin.sync_task: Processed new codec header: flac, 48000 Hz, 2 ch, 16-bit\\033[0m"}}
+{"received":"2026-11-20T07:44:33.662Z","message":{"message_id":"logs","event":"output","data":"[20:44:33.661]\\033[0;36m[D][i2s_audio.speaker:113]: Stopped\\033[0m"}}
+{"received":"2026-11-20T07:44:33.686Z","message":{"message_id":"logs","event":"output","data":"[20:44:33.685]\\033[0;36m[D][sendspin.media_source:076]: sendspin_id: current\\033[0m"}}
+{"received":"2026-11-20T07:44:33.701Z","message":{"message_id":"logs","event":"output","data":"[20:44:33.701]\\033[0;36m[D][speaker_source_media_player:304]: State changed to PLAYING\\033[0m"}}
+{"received":"2026-11-20T07:44:33.927Z","message":{"message_id":"logs","event":"output","data":"[20:44:33.927]\\033[0;96m[S][media_player]: 'Sendspin Speaker' >> PLAYING\\033[0m"}}
+{"received":"2026-11-20T07:44:33.927Z","message":{"message_id":"logs","event":"output","data":"[20:44:33.927]\\033[0;96m[S][media_player]:   Volume: 64%\\033[0m"}}
+{"received":"2026-11-20T07:44:34.002Z","message":{"message_id":"logs","event":"output","data":"[20:44:34.002]\\033[0;33m[W][component:446]: api took a long time for an operation (198 ms), max is 90 ms\\033[0m"}}
+{"received":"2026-11-20T07:44:34.014Z","message":{"message_id":"logs","event":"output","data":"[20:44:34.013]\\033[0;36m[D][i2s_audio.speaker:095]: Starting\\033[0m"}}
+{"received":"2026-11-20T07:44:34.019Z","message":{"message_id":"logs","event":"output","data":"[20:44:34.019]\\033[0;36m[D][ring_buffer:041]\\033[1;31m[speaker_task]\\033[0;36m: Created ring buffer with size 96000\\033[0m"}}
+{"received":"2026-11-20T07:44:35.096Z","message":{"message_id":"logs","event":"output","data":"[20:44:35.095]\\033[0;36m[D][image_decoder.jpeg:158]\\033[1;31m[SsArt]\\033[0;36m: Image size: 448 x 448, bpp: 24\\033[0m"}}
+{"received":"2026-11-20T07:44:35.101Z","message":{"message_id":"logs","event":"output","data":"[20:44:35.101]\\033[0;36m[D][runtime_image:342]\\033[1;31m[SsArt]\\033[0;36m: Decoding complete: 448x448, 53072 bytes\\033[0m"}}
+{"received":"2026-11-20T07:44:36.224Z","message":{"message_id":"logs","event":"output","data":"[20:44:36.224]\\033[0;36m[D][script:102]: Script 'update_progress_ui' restarting (mode: restart)\\033[0m"}}
+{"received":"2026-11-20T07:44:38.373Z","message":{"message_id":"logs","event":"output","data":"[20:44:38.373]\\033[0;36m[D][main:431]: Transport: next track pressed\\033[0m"}}
+{"received":"2026-11-20T07:44:39.430Z","message":{"message_id":"logs","event":"output","data":"[20:44:39.429]\\033[0;36m[D][esp-idf:000]\\033[1;31m[SsProto]\\033[0;36m: D (161977) sendspin.client: Stream ended - player:1 artwork:0 visualizer:0\\033[0m"}}
+{"received":"2026-11-20T07:44:39.466Z","message":{"message_id":"logs","event":"output","data":"[20:44:39.466]\\033[0;36m[D][speaker_source_media_player:304]: State changed to IDLE\\033[0m"}}
+{"received":"2026-11-20T07:44:39.554Z","message":{"message_id":"logs","event":"output","data":"[20:44:39.553]\\033[0;36m[D][script:102]: Script 'update_progress_ui' restarting (mode: restart)\\033[0m"}}
+{"received":"2026-11-20T07:44:39.606Z","message":{"message_id":"logs","event":"output","data":"[20:44:39.605]\\033[0;96m[S][media_player]: 'Sendspin Speaker' >> IDLE\\033[0m"}}
+{"received":"2026-11-20T07:44:39.606Z","message":{"message_id":"logs","event":"output","data":"[20:44:39.605]\\033[0;96m[S][media_player]:   Volume: 64%\\033[0m"}}
+{"received":"2026-11-20T07:44:39.649Z","message":{"message_id":"logs","event":"output","data":"[20:44:39.648]\\033[0;36m[D][esp-idf:000]\\033[1;31m[SsProto]\\033[0;36m: D (162104) sendspin.client: Stream Started\\033[0m"}}
+{"received":"2026-11-20T07:44:39.657Z","message":{"message_id":"logs","event":"output","data":"[20:44:39.656]\\033[0;36m[D][esp-idf:000]\\033[1;31m[SsSync]\\033[0;36m: I (162160) sendspin.sync_task: Processed new codec header: flac, 48000 Hz, 2 ch, 16-bit\\033[0m"}}
+{"received":"2026-11-20T07:44:39.707Z","message":{"message_id":"logs","event":"output","data":"[20:44:39.707]\\033[0;36m[D][image_decoder.jpeg:158]\\033[1;31m[SsArt]\\033[0;36m: Image size: 448 x 448, bpp: 24\\033[0m"}}
+{"received":"2026-11-20T07:44:40.003Z","message":{"message_id":"logs","event":"output","data":"[20:44:40.003]\\033[0;36m[D][i2s_audio.speaker:113]: Stopped\\033[0m"}}
+{"received":"2026-11-20T07:44:40.599Z","message":{"message_id":"logs","event":"output","data":"[20:44:40.598]\\033[0;36m[D][sendspin.media_source:076]: sendspin_id: current\\033[0m"}}
+{"received":"2026-11-20T07:44:40.605Z","message":{"message_id":"logs","event":"output","data":"[20:44:40.605]\\033[0;36m[D][speaker_source_media_player:304]: State changed to PLAYING\\033[0m"}}
+{"received":"2026-11-20T07:44:40.728Z","message":{"message_id":"logs","event":"output","data":"[20:44:40.727]\\033[0;36m[D][runtime_image:342]\\033[1;31m[SsArt]\\033[0;36m: Decoding complete: 448x448, 46125 bytes\\033[0m"}}
+{"received":"2026-11-20T07:44:40.732Z","message":{"message_id":"logs","event":"output","data":"[20:44:40.731]\\033[0;36m[D][ring_buffer:041]\\033[1;31m[speaker_task]\\033[0;36m: Created ring buffer with size 96000\\033[0m"}}
+{"received":"2026-11-20T07:44:40.739Z","message":{"message_id":"logs","event":"output","data":"[20:44:40.738]\\033[0;96m[S][media_player]: 'Sendspin Speaker' >> PLAYING\\033[0m"}}
+{"received":"2026-11-20T07:44:40.739Z","message":{"message_id":"logs","event":"output","data":"[20:44:40.738]\\033[0;96m[S][media_player]:   Volume: 64%\\033[0m"}}
+{"received":"2026-11-20T07:44:40.745Z","message":{"message_id":"logs","event":"output","data":"[20:44:40.745]\\033[0;36m[D][i2s_audio.speaker:095]: Starting\\033[0m"}}
+{"received":"2026-11-20T07:44:48.015Z","message":{"message_id":"logs","event":"output","data":"[20:44:48.014]\\033[0;36m[D][esp-idf:000]\\033[1;31m[SsProto]\\033[0;36m: D (170562) sendspin.client: Stream ended - player:1 artwork:0 visualizer:0\\033[0m"}}
+{"received":"2026-11-20T07:44:48.037Z","message":{"message_id":"logs","event":"output","data":"[20:44:48.037]\\033[0;36m[D][speaker_source_media_player:304]: State changed to IDLE\\033[0m"}}
+{"received":"2026-11-20T07:44:48.146Z","message":{"message_id":"logs","event":"output","data":"[20:44:48.145]\\033[0;96m[S][media_player]: 'Sendspin Speaker' >> IDLE\\033[0m"}}
+{"received":"2026-11-20T07:44:48.146Z","message":{"message_id":"logs","event":"output","data":"[20:44:48.145]\\033[0;96m[S][media_player]:   Volume: 64%\\033[0m"}}
+{"received":"2026-11-20T07:44:48.241Z","message":{"message_id":"logs","event":"output","data":"[20:44:48.240]\\033[0;36m[D][esp-idf:000]\\033[1;31m[SsProto]\\033[0;36m: D (170784) sendspin.client: Stream Started\\033[0m"}}
+{"received":"2026-11-20T07:44:48.270Z","message":{"message_id":"logs","event":"output","data":"[20:44:48.269]\\033[0;36m[D][esp-idf:000]\\033[1;31m[SsSync]\\033[0;36m: I (170812) sendspin.sync_task: Processed new codec header: flac, 48000 Hz, 2 ch, 16-bit\\033[0m"}}
+{"received":"2026-11-20T07:44:48.594Z","message":{"message_id":"logs","event":"output","data":"[20:44:48.593]\\033[0;36m[D][i2s_audio.speaker:113]: Stopped\\033[0m"}}
+{"received":"2026-11-20T07:44:48.727Z","message":{"message_id":"logs","event":"output","data":"[20:44:48.727]\\033[0;36m[D][sendspin.media_source:076]: sendspin_id: current\\033[0m"}}
+{"received":"2026-11-20T07:44:48.933Z","message":{"message_id":"logs","event":"output","data":"[20:44:48.932]\\033[0;36m[D][speaker_source_media_player:304]: State changed to PLAYING\\033[0m"}}
+{"received":"2026-11-20T07:44:48.987Z","message":{"message_id":"logs","event":"output","data":"[20:44:48.986]\\033[0;33m[W][component:446]: speaker_source.media_player took a long time for an operation (326 ms), max is 130 ms\\033[0m"}}
+{"received":"2026-11-20T07:44:49.072Z","message":{"message_id":"logs","event":"output","data":"[20:44:49.071]\\033[0;96m[S][media_player]: 'Sendspin Speaker' >> PLAYING\\033[0m"}}
+{"received":"2026-11-20T07:44:49.072Z","message":{"message_id":"logs","event":"output","data":"[20:44:49.071]\\033[0;96m[S][media_player]:   Volume: 64%\\033[0m"}}
+{"received":"2026-11-20T07:44:49.084Z","message":{"message_id":"logs","event":"output","data":"[20:44:49.083]\\033[0;36m[D][i2s_audio.speaker:095]: Starting\\033[0m"}}
+{"received":"2026-11-20T07:44:49.103Z","message":{"message_id":"logs","event":"output","data":"[20:44:49.102]\\033[0;36m[D][ring_buffer:041]\\033[1;31m[speaker_task]\\033[0;36m: Created ring buffer with size 96000\\033[0m"}}
+{"received":"2026-11-20T07:44:49.784Z","message":{"message_id":"logs","event":"output","data":"[20:44:49.783]\\033[0;33m[W][component:446]: sendspin took a long time for an operation (146 ms), max is 50 ms\\033[0m"}}
+{"received":"2026-11-20T07:44:49.792Z","message":{"message_id":"logs","event":"output","data":"[20:44:49.791]\\033[0;36m[D][script:102]: Script 'update_progress_ui' restarting (mode: restart)\\033[0m"}}
+{"received":"2026-11-20T07:44:49.945Z","message":{"message_id":"logs","event":"output","data":"[20:44:49.942]\\033[0;36m[D][image_decoder.jpeg:158]\\033[1;31m[SsArt]\\033[0;36m: Image size: 448 x 448, bpp: 24\\033[0m"}}
+{"received":"2026-11-20T07:44:49.949Z","message":{"message_id":"logs","event":"output","data":"[20:44:49.948]\\033[0;36m[D][runtime_image:342]\\033[1;31m[SsArt]\\033[0;36m: Decoding complete: 448x448, 21648 bytes\\033[0m"}}
+{"received":"2026-11-20T07:45:53.941Z","message":null}
+{"received":"2026-11-20T07:45:54.984Z","message":{"message_id":"logs","event":"output","data":"[20:45:54.984]\\033[0;36m[D][speaker_source_media_player:304]: State changed to IDLE\\033[0m"}}
+{"received":"2026-11-20T07:45:55.011Z","message":{"message_id":"logs","event":"output","data":"[20:45:55.010]\\033[0;36m[D][esp-idf:000]\\033[1;31m[SsProto]\\033[0;36m: D (237528) sendspin.client: Stream ended - player:1 artwork:0 visualizer:0\\033[0m"}}
+{"received":"2026-11-20T07:45:55.880Z","message":{"message_id":"logs","event":"output","data":"[20:45:55.880]\\033[0;33m[W][component:446]: lvgl took a long time for an operation (710 ms), max is 470 ms\\033[0m"}}
+{"received":"2026-11-20T07:45:55.888Z","message":{"message_id":"logs","event":"output","data":"[20:45:55.888]\\033[0;96m[S][media_player]: 'Sendspin Speaker' >> IDLE\\033[0m"}}
+{"received":"2026-11-20T07:45:55.888Z","message":{"message_id":"logs","event":"output","data":"[20:45:55.888]\\033[0;96m[S][media_player]:   Volume: 64%\\033[0m"}}
+{"received":"2026-11-20T07:45:55.894Z","message":{"message_id":"logs","event":"output","data":"[20:45:55.893]\\033[0;36m[D][i2s_audio.speaker:113]: Stopped\\033[0m"}}
+{"received":"2026-11-20T07:45:55.918Z","message":{"message_id":"logs","event":"output","data":"[20:45:55.918]\\033[0;36m[D][esp-idf:000]\\033[1;31m[SsProto]\\033[0;36m: D (237635) sendspin.client: Stream Started\\033[0m"}}
+{"received":"2026-11-20T07:45:55.929Z","message":{"message_id":"logs","event":"output","data":"[20:45:55.929]\\033[0;36m[D][esp-idf:000]\\033[1;31m[SsSync]\\033[0;36m: I (238443) sendspin.sync_task: Processed new codec header: flac, 48000 Hz, 2 ch, 16-bit\\033[0m"}}
+{"received":"2026-11-20T07:45:55.972Z","message":{"message_id":"logs","event":"output","data":"[20:45:55.972]\\033[0;36m[D][sendspin.media_source:076]: sendspin_id: current\\033[0m"}}
+{"received":"2026-11-20T07:45:55.980Z","message":{"message_id":"logs","event":"output","data":"[20:45:55.980]\\033[0;36m[D][speaker_source_media_player:304]: State changed to PLAYING\\033[0m"}}
+{"received":"2026-11-20T07:45:56.054Z","message":{"message_id":"logs","event":"output","data":"[20:45:56.054]\\033[0;36m[D][i2s_audio.speaker:095]: Starting\\033[0m"}}
+{"received":"2026-11-20T07:45:56.074Z","message":{"message_id":"logs","event":"output","data":"[20:45:56.074]\\033[0;36m[D][ring_buffer:041]\\033[1;31m[speaker_task]\\033[0;36m: Created ring buffer with size 96000\\033[0m"}}
+{"received":"2026-11-20T07:45:56.094Z","message":{"message_id":"logs","event":"output","data":"[20:45:56.094]\\033[0;96m[S][media_player]: 'Sendspin Speaker' >> PLAYING\\033[0m"}}
+{"received":"2026-11-20T07:45:56.094Z","message":{"message_id":"logs","event":"output","data":"[20:45:56.094]\\033[0;96m[S][media_player]:   Volume: 64%\\033[0m"}}
